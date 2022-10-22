@@ -8,8 +8,8 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     answerId = db.Column(db.Integer, db.ForeignKey('answers.id'))
     body = db.Column(db.String(2000), nullable=False)
-    created_on = db.Column(db.Date, default=datetime.datetime.utcnow)
-    updated_on = db.Column(db.Date, onupdate=datetime.datetime.utcnow)
+    created_on = db.Column(db.Date, default=datetime.utcnow)
+    updated_on = db.Column(db.Date, onupdate=datetime.utcnow)
 
     user = db.relationship('User', back_populates='comments')
     answer = db.relationship('Answer', back_populates='comments')
@@ -19,8 +19,8 @@ class Comment(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'answerId': self.answerId
-            'body': self.body
-            'created_on': self.created_on
+            'answerId': self.answerId,
+            'body': self.body,
+            'created_on': self.created_on,
             'updated_on': self.updated_on
         }
