@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     questions = db.relationship('Question', back_populates='user')
+    answers = db.relationship('Answer', back_populates='user')
 
     @property
     def password(self):
