@@ -1,5 +1,5 @@
 from .db import db
-import datetime
+from datetime import datetime
 
 class Answer(db.Model):
     __tablename__ = 'answers'
@@ -14,6 +14,7 @@ class Answer(db.Model):
     user = db.relationship('User', back_populates='answers')
     question = db.relationship('Question', back_populates='answers')
     comments = db.relationship('Comment', back_populates='answer')
+    votes = db.relationship('Vote', back_populates='answer')
 
 
     def to_dict(self):

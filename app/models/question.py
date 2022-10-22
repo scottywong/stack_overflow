@@ -1,5 +1,5 @@
 from .db import db
-import datetime
+from datetime import datetime
 
 class Question(db.Model):
     __tablename__ = 'questions'
