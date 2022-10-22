@@ -21,8 +21,8 @@ COPY /react-app/build/* app/static/
 # Run the next two python install commands with PIP
 # install -r requirements.txt
 # install psycopg2
-RUN pip install - r requirements.txt
-RUN install psycorpg2
+RUN pip install -r requirements.txt
+RUN pip install psycorpg2
 
 # Start the flask environment by setting our
 # closing command to gunicorn app:app
