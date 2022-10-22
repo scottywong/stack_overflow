@@ -5,7 +5,7 @@ FROM python:3.9
 # REACT_APP_BASE_URL -> Your deployment URL
 ENV REACT_APP_BASE_URL = tbd
 # FLASK_APP -> entry point to your flask app
-ENV FLASK_APP app
+ENV FLASK_APP = app
 # FLASK_ENV -> Tell flask to use the production server
 ENV FLASK_ENV = production
 # SQLALCHEMY_ECHO -> Just set it to true
