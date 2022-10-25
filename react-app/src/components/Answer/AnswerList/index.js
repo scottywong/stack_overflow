@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Answer from '../Answer';
-import './MyAnswerList.css'
+import './AnswerList.css'
 
 function AnswerList({answerList}) {
 

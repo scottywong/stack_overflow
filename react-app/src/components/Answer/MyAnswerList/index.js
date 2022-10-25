@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AnswerListItem from '../AnswerListItem';
 import { fetchGetUserAnswers } from '../../../store/answers';
-import './MyAnswerList.css'
+// import './MyAnswerList.css';
 
 function MyAnswerList() {
 
