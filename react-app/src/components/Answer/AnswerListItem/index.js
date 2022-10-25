@@ -6,10 +6,10 @@ import './AnswerListItem.css';
 function AnswerListItem({answer}) {
 
     return (
-        <> 
-        
-        </>
-    );
+        <div className='answerListItem-container'>
+        <p>{answer.body}</p>
+        </div>
+    ); 
 }
 
 export default AnswerListItem;

@@ -8,20 +8,39 @@ import './MyAnswerList.css'
 function MyAnswerList() {
 
     const dispatch = useDispatch();
-    const myAnswers = useSelector(state => state.answers);
+    // const myAnswers = useSelector(state => state.answers);
 
-    //useEffect
-    // useEffect(() => {
-    //     dispatch(fetchGetUserAnswers());
-    // },[dispatch]);
+    const myAnswers = 
+        [
+            {
+                "id": 1,
+                "userId": 1,
+                "questionId":1,
+                "body": "Sample Body",
+                "created_on":  "2022-12-12", 
+                "last_update_on": "2022-12-12"
+            },
+            {
+                "id": 2,
+                "userId": 1,
+                "questionId":1,
+                "body": "Sample Body",
+                "created_on":  "2022-12-12", 
+                "last_update_on": "2022-12-12"
+            }
+        ];
+     
+    useEffect(() => {
+        dispatch(fetchGetUserAnswers());
+    },[dispatch]);
 
     return (
-        <div className="MyAnswerList-container">
-            {/* {console.log(myAnswers)} */}
-        {/* { myAnswers && 
+        <div className="myAnswerList-container">
+             {console.log(myAnswers)} 
+        { myAnswers && 
         myAnswers.map(answer => {
             return <AnswerListItem answer={answer}> </AnswerListItem>
-        })} */}
+        })} 
         </div>
     )
 
