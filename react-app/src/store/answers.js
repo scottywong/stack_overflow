@@ -1,12 +1,12 @@
 /******** Constants ********/
-export const GET_USERANSWERS = 'answers/load';
+export const GET_USER_ANSWERS = 'answers/load';
 export const CREATE_ANSWER = 'answers/create'
 export const EDIT_ANSWER = 'answers/update';
 export const DELETE_ANSWER = 'answers/remove';
 
 /******** Actions ********/
 const getUserAnswers = (answers) => ({
-    type: GET_USERANSWERS,
+    type: GET_USER_ANSWERS,
     payload: answers
 })
 
@@ -33,7 +33,7 @@ const deleteAnswer = (id) => ({
 
 export const fetchGetUserAnswers = () => async (dispatch) => {
     let response;
-    response = await fetch('/api/user/answers');
+    response = await fetch('/api/users/answers');
 
     if(response.ok){
         const answers = await response.json();
@@ -44,7 +44,7 @@ export const fetchGetUserAnswers = () => async (dispatch) => {
 
 export const fetchCreateAnswer = (answer,questionId) => async (dispatch) => {
     let response;
-    response = await fetch(`/question/${questionId}/answers`);
+    response = await fetch(`/api/questions/${questionId}/answers`);
 
     if(response.ok){
         const answer = await response.json();
@@ -67,7 +67,7 @@ export const fetchEditAnswer =  (answer) => async (dispatch) => {
 
 export const fetchDeleteAnswer =  () => async (dispatch) => {
     let response;
-    response = await fetch('/api/user/answers');
+    response = await fetch('/api/users/answers');
 
     if(response.ok){
         const answer = await response.json();
@@ -81,7 +81,7 @@ const initialState = {};
 const answersReducer = (state = initialState, action) => {
     let newState = {...state};
     switch (action.type){
-        case GET_USERANSWERS:
+        case GET_USER_ANSWERS:
             action.payload.forEach(answer => {
                 newState[answer.id] = answer;
             });
