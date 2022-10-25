@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import MyAnswerList from './Answer/MyAnswerList';
-import MyQuestionList from './Questions/MyQuestionList'
+import MyAnswerList from '../Answer/MyAnswerList';
+import MyQuestionList from '../Questions/MyQuestionList'
+import './Profile.css';
 
-
-function Profile() {
+const Profile = () => {
     
     return (
         <div className='profile-Container'>
