@@ -1,13 +1,16 @@
-### /user/login
+### Backend Routes
+Prepend all routes below with /API
+
+### /auth/login
 POST credentials for authentication
 
-### /user/signup
+### /auth/signup
 POST create new user
 
-### /user/logout
+### /auth/logout
 DELETE user session
 
-### /user/questions
+### /users/questions
 GET my questions
 
 Require Authentication: TRUE
@@ -44,7 +47,7 @@ Require Authentication: TRUE
 }  
 ```
 
-### /user/answers
+### /users/answers
 GET my answers
 
 Require Authentication: TRUE
@@ -262,7 +265,7 @@ Status Code: 200
 }
 ```
 
-### /question/:questionId/answers
+### /questions/:questionId/answers
 POST a new answer
 
 Require Authentication: TRUE
