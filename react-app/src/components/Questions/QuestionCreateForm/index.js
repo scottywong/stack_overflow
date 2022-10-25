@@ -1,6 +1,7 @@
 import { paperClasses } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { createQuestions } from '../../../store/questions';
 import './QuestionCreateForm.css';
 
 function QuestionCreateForm() {
@@ -20,7 +21,7 @@ function QuestionCreateForm() {
       body
     }
 
-    const createdQuestion = await dispatch(createQuestion(payload))
+    const createdQuestion = await dispatch(createQuestions(payload))
       // .then(() => {
       //   setShowModal(false)
       // })

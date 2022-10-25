@@ -27,10 +27,18 @@ export const getUserQuestions = (questions) => {
 // GET One Question
 export const getQuestion = (question) => {
     return {
-        type: CREATE_QUESTION,
+        type: GET_QUESTION,
         payload: question
     };
 };
+
+// CREATE Questions
+export const createQuestions = (question) => {
+    return {
+        type: CREATE_QUESTIONS,
+        payload: question
+    }
+}
 
 // EDIT (PUT) Questions
 export const editQuestions = (question) => {
@@ -56,7 +64,7 @@ export const fetchAllQuestions = () => async (dispatch) => {
 
     if (res.ok){
         const questions = await res.json();
-        dispatch(getQuestions(questions));
+        dispatch(getAllQuestions(questions));
         return questions
     };
     return res;
@@ -96,7 +104,7 @@ export const fetchCreateQuestions = (question) => async (dispatch) => {
 
     if (res.ok){
         const question = await res.json();
-        dispatch(createQuestion(question));
+        dispatch(createQuestions(question));
         return question;
     };
     return res;
