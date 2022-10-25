@@ -9,7 +9,7 @@ function Question() {
   // const parsedId = parseInt(questionId, 10);
   // const dispatch = useDispatch();
   // const question = useSelector(state => state.questions);
-  // const { Answers, Comments, Votes } = question
+  // const { Answers } = question
 
   // useEffect(() => {
   //   dispatch(fetchQuestion(parsedId))
@@ -27,10 +27,10 @@ function Question() {
       <div>
         {Answers.map(answer => {
           <p>{answer.body}</p>
-          {Comments.map(comment => {
+          {answer.Comments.map(comment => {
             <p>{comment.body}</p>
           })}
-          {Votes.map(vote => {
+          {answer.Votes.map(vote => {
             <p>{vote.voteDirection}</p>
           })}
           <p>{Votes.length}</p>
