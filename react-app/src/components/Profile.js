@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import MyAnswerList from './Answer/MyAnswerList';
-import NavBar from './NavBar';
+import MyQuestionList from './Questions/MyQuestionList'
+
 
 function Profile() {
     
     return (
-        <div className='Profile-Container'>
-
+        <div className='profile-Container'>
+            
+            <MyQuestionList/>
             <MyAnswerList/>
 
-        
         </div>
 
     )

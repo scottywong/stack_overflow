@@ -10,6 +10,10 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+import QuestionList from './components/Questions/QuestionList';
+import QuestionDetailPage from './components/Questions/QuestionDetailPage';
+import Footer from './components/Footer';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -44,10 +48,15 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute path='/questions/:questionId' exact={true} >
+          <QuestionDetailPage />
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+          <QuestionList/>
         </ProtectedRoute>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

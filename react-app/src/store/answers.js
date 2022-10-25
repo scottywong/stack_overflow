@@ -44,7 +44,15 @@ export const fetchGetUserAnswers = () => async (dispatch) => {
 
 export const fetchCreateAnswer = (answer,questionId) => async (dispatch) => {
     let response;
-    response = await fetch(`/api/questions/${questionId}/answers`);
+    response = await fetch(`/api/questions/${questionId}/answers`,
+    {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(answer)
+      }
+    );
 
     if(response.ok){
         const answer = await response.json();
@@ -54,9 +62,17 @@ export const fetchCreateAnswer = (answer,questionId) => async (dispatch) => {
 }
 
 
-export const fetchEditAnswer =  (answer) => async (dispatch) => {
+export const fetchEditAnswer =  (answer,answerId) => async (dispatch) => {
     let response;
-    response = await fetch(`/api/answers/${answer.id}`);
+    response = await fetch(`/api/answers/${answerId}`,
+    {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(answer)
+      }
+    );
 
     if(response.ok){
         const answer = await response.json();
