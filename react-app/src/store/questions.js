@@ -75,9 +75,9 @@ export const fetchUserQuestions = () => async (dispatch) => {
     const res = await fetch(`/api/users/questions`)
 
     if (res.ok){
-        const questions = await res.json()
-        dispatch(getUserQuestions(questions))
-        return questions
+        const questions = await res.json();
+        dispatch(getUserQuestions(questions));
+        return questions;
     };
     return res
 };

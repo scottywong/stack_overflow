@@ -1,43 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { fetchQuestion } from '../../../store/questions';
+import React from 'react';
 import './Question.css';
 
-function Question() {
-  // const { questionId } = useParams();
-  // const parsedId = parseInt(questionId, 10);
-  // const dispatch = useDispatch();
-  // const question = useSelector(state => state.questions);
-  // const { Answers } = question
-
-  // useEffect(() => {
-  //   dispatch(fetchQuestion(parsedId))
-  // }, [dispatch])
-
+function Question({ question }) {
   return (
-    <>
-      <div>Here's a question for you...</div>
-      {/* <div>
-        <h3>{question.title}</h3>
-      </div>
+    <div>
+      <h4>{question.title}</h4>
+      <p>{question.body}</p>
       <div>
-        <p>{question.body}</p>
+        <button>Edit Question</button>
+        <button>Delete Question</button>
+        <button>Post Answer</button>
       </div>
-      <div>
-        {Answers.map(answer => {
-          <p>{answer.body}</p>
-          {answer.Comments.map(comment => {
-            <p>{comment.body}</p>
-          })}
-          {answer.Votes.map(vote => {
-            <p>{vote.voteDirection}</p>
-          })}
-          <p>{Votes.length}</p>
-        })}
-      </div> */}
-    </>
-  )
+    </div>
+  );
 }
 
 export default Question;
