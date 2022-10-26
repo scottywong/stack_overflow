@@ -30,6 +30,8 @@ def create_comment(answerId):
         db.session.commit()
         return new_comment.to_dict(), 200
 
+    return {"errors": validation_errors_to_error_messages(form.errors)}
+
 
 @answer_routes.route('/<int:answerId>', methods=['PUT'])
 @login_required
