@@ -6,13 +6,10 @@ function MyQuestionList() {
   const dispatch = useDispatch()
   const [validationErrors, setValidationErrors] = useState([]);
 
-  // const questions = useSelector((state) => state.questions)
-  const questions = [
-    { title: 'First Question', body: 'How do I become a bully?'},
-    { title: 'Second Question', body: 'Who cares?' }
-  ]
+  const questions = Object.values(useSelector(state => state.questions));
 
   useEffect(() => {
+
     dispatch(fetchUserQuestions()).catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setValidationErrors(data.errors);

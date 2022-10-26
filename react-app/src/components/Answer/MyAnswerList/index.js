@@ -8,27 +8,7 @@ import { fetchGetUserAnswers } from '../../../store/answers';
 function MyAnswerList() {
 
     const dispatch = useDispatch();
-    // const myAnswers = useSelector(state => state.answers);
-
-    const myAnswers = 
-        [
-            {
-                "id": 1,
-                "userId": 1,
-                "questionId":1,
-                "body": "Sample Body",
-                "created_on":  "2022-12-12", 
-                "last_update_on": "2022-12-12"
-            },
-            {
-                "id": 2,
-                "userId": 1,
-                "questionId":1,
-                "body": "Sample Body",
-                "created_on":  "2022-12-12", 
-                "last_update_on": "2022-12-12"
-            }
-        ];
+    const myAnswers = Object.values(useSelector(state => state.answers));
      
     useEffect(() => {
         dispatch(fetchGetUserAnswers());
@@ -36,7 +16,7 @@ function MyAnswerList() {
 
     return (
         <div className="myAnswerList-container">
-             {console.log(myAnswers)} 
+            
         { myAnswers && 
         myAnswers.map(answer => {
             return <AnswerListItem answer={answer}> </AnswerListItem>
