@@ -6,13 +6,13 @@ function MyQuestionList() {
   const dispatch = useDispatch()
   const [validationErrors, setValidationErrors] = useState([]);
 
-  const questions = Object.values(useSelector(state => state.questions));
+  const questions = Object.values(useSelector(state => state.questions?.user_questions ? state.questions.user_questions : state.questions));
 
   useEffect(() => {
 
     dispatch(fetchUserQuestions()).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setValidationErrors(data.errors);
+      // const data = await res.json();
+      // if (data && data.errors) setValidationErrors(data.errors);
     });
   }, [dispatch]);
 

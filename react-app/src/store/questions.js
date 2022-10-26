@@ -151,11 +151,14 @@ const questionsReducer = (state = initialState, action) => {
     let newState = {...state};
     switch(action.type) {
         case GET_ALL_QUESTIONS:
-            action.payload.forEach(question => newState[question.id] = question)
+            console.log('NEW STATE BEFORE', newState)
+            newState.all_questions = {}
+            action.payload['Questions'].forEach(question => newState.all_questions[question.id] = question)
+            console.log('NEW STATE AFTER', newState)
             return newState;
         case GET_USER_QUESTIONS:
-            console.log('questionap:' , action.payload)
-            action.payload['Questions'].forEach(question => newState[question.id] = question)
+            newState.user_questions = {}
+            action.payload['Questions'].forEach(question => newState.user_questions[question.id] = question)
             return newState;
         case GET_QUESTION:
             newState = action.payload;
