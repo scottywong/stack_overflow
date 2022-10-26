@@ -5,12 +5,15 @@ export const EDIT_ANSWER = 'answers/update';
 export const DELETE_ANSWER = 'answers/remove';
 
 /******** Actions ********/
-const getUserAnswers = (answers) => ({
+export const getUserAnswers = (answers) => ({
     type: GET_USER_ANSWERS,
     payload: answers
 })
 
-const createAnswer = (answer,questionId) => ({
+
+
+export const createAnswer = (answer,questionId) => (
+    {
     type: CREATE_ANSWER,
     payload: {
         answer,
@@ -18,13 +21,13 @@ const createAnswer = (answer,questionId) => ({
     }
 });
 
-const editAnswer = (answer) => ({
+export const editAnswer = (answer) => ({
     type: EDIT_ANSWER,
     payload: answer
   });
 
 
-const deleteAnswer = (id) => ({
+export const deleteAnswer = (id) => ({
     type: DELETE_ANSWER,
     payload: id
 });
@@ -33,12 +36,16 @@ const deleteAnswer = (id) => ({
 
 export const fetchGetUserAnswers = () => async (dispatch) => {
     let response;
+
     response = await fetch('/api/users/answers');
 
     if(response.ok){
         const answers = await response.json();
         dispatch(getUserAnswers(answers));
+        return response;
     };
+
+    
  
 }
 
@@ -58,6 +65,8 @@ export const fetchCreateAnswer = (answer,questionId) => async (dispatch) => {
         const answer = await response.json();
         dispatch(createAnswer(answer,questionId));
     };
+
+    return response;
  
 }
 
@@ -78,6 +87,8 @@ export const fetchEditAnswer =  (answer,answerId) => async (dispatch) => {
         const answer = await response.json();
         dispatch(editAnswer(answer));
     };
+
+    return response;
 }
 
 
@@ -89,6 +100,8 @@ export const fetchDeleteAnswer =  () => async (dispatch) => {
         const answer = await response.json();
         dispatch(deleteAnswer(answer.id));
     };
+
+    return response;
 }
 
 /******** Reducer ********/
@@ -98,9 +111,8 @@ const answersReducer = (state = initialState, action) => {
     let newState = {...state};
     switch (action.type){
         case GET_USER_ANSWERS:
-            action.payload.forEach(answer => {
-                newState[answer.id] = answer;
-            });
+            action.payload['Answers'].forEach(answer => {
+                newState[answer.id] = answer});
             return newState;
         case CREATE_ANSWER:
             newState = { ...state, [action.payload.id]: action.payload }

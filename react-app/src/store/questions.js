@@ -17,12 +17,10 @@ export const getAllQuestions = (questions) => {
 };
 
 // GET USER Questions
-export const getUserQuestions = (questions) => {
-    return {
+export const getUserQuestions = (questions) => ({
         type: GET_USER_QUESTIONS,
         payload: questions 
-    }
-}
+});
 
 // GET One Question
 export const getQuestion = (question) => {
@@ -72,14 +70,20 @@ export const fetchAllQuestions = () => async (dispatch) => {
 
 // GET USER Questions thunk
 export const fetchUserQuestions = () => async (dispatch) => {
-    const res = await fetch(`/api/users/questions`)
+    const res = await fetch(`/api/users/questions`);
+
+   
 
     if (res.ok){
         const questions = await res.json();
+
+     
         dispatch(getUserQuestions(questions));
-        return questions;
+
+        console.log('inside response, ', questions)
+        return res;
     };
-    return res
+    // return res
 };
 
 // GET one Question thunk
@@ -143,14 +147,15 @@ export const fetchDeleteQuestions = (questionId) => async (dispatch) => {
 // ******** REDUCER ********
 const initialState = {}
 
-const questionReducer = (state = initialState, action) => {
+const questionsReducer = (state = initialState, action) => {
     let newState = {...state};
     switch(action.type) {
         case GET_ALL_QUESTIONS:
             action.payload.forEach(question => newState[question.id] = question)
             return newState;
         case GET_USER_QUESTIONS:
-            action.payload.forEach(question => newState[question.id] = question)
+            console.log('questionap:' , action.payload)
+            action.payload['Questions'].forEach(question => newState[question.id] = question)
             return newState;
         case GET_QUESTION:
             newState = action.payload;
@@ -169,4 +174,4 @@ const questionReducer = (state = initialState, action) => {
     };
 };
 
-export default questionReducer;
+export default questionsReducer;

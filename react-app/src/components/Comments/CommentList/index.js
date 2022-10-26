@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import CommentList from '../../Comments/CommentList'
 import CommentListItem from '../CommentListItem';
 import './CommentList.css'
 
