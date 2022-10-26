@@ -45,9 +45,11 @@ def createQuestion():
         return question.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@question_routes.route('/', methods=['PUT'])
+@question_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def editQuestion():
+def editQuestion(id):
+    if id != current_user.id:
+        return {'Message': "aint your question, you bully!"}
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -65,6 +67,8 @@ def editQuestion():
 @question_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def deleteQuestion(id):
+    if id != current_user.id:
+        return {'Message': "aint your question, you bully!"}
     DQuestion = Question.query.get(id)
     db.session.delete(DQuestion)
     db.session.commit()
