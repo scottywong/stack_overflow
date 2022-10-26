@@ -19,5 +19,5 @@ def answer_different_than_question(form, field):
         raise ValidationError('Cannot answer a question that you asked')
 
 class AnswerForm(FlaskForm):
-    questionId = IntegerField('questionId', validators=[DataRequired(), valid_question, answer_different_than_question])
+    # questionId = IntegerField('questionId', validators=[DataRequired(), valid_question, answer_different_than_question])
     body = TextAreaField('Answer', validators=[DataRequired()])
