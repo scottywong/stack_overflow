@@ -8,15 +8,11 @@ function QuestionList() {
     const dispatch = useDispatch();
     const [validationErrors, setValidationErrors] = useState([]);
 
-    // const questions = useSelector((state) => state.questions)
-    const questions = [
-      { title: 'First Question', body: 'How do I become a bully?' },
-      { title: 'Second Question', body: 'Who cares?' },
-    ];
-
+    const questions = Object.values(useSelector((state) => state.questions?.all_questions ? state.questions.all_questions : state.questions));
+    
     useEffect(() => {
         dispatch(fetchAllQuestions()).catch(async (res) => {
-            console.log('res = ', res)
+            // console.log('res = ', res)
             // const data = await res.json();
             // if (data && data.errors) setValidationErrors(data.errors);
         })
