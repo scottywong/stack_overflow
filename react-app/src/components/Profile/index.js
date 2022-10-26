@@ -10,7 +10,7 @@ const Profile = () => {
         <div className='profile-Container'>
             
             <MyQuestionList/>
-            {/* <MyAnswerList/> */}
+            <MyAnswerList/>
 
         </div>
 
