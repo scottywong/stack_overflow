@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint
 from flask_login import login_required, current_user
 
 from app.models import db, Comment
@@ -15,23 +15,13 @@ def delete_answer(commentId):
     Delete a comment by commentId
     """
     comment = Comment.query.get(commentId)
-
     if comment is None:
-        return jsonify({
-            "message": "Comment not found",
-            "status_code": 404,
-        }), 404
+        return {"errors": ["can't find this comment, bully!"]}, 404
 
     if comment.userId != current_user.id:
-        return jsonify({
-            "message": "Cannot delete comment",
-            "status_code": 401
-        }), 401
+        return {"errors": ["ain't your comment, bully!"]}, 401
 
     db.session.delete(comment)
     db.session.commit()
 
-    return jsonify({
-        "message": "Comment deleted successfully",
-        "status_code": 200,
-    }), 200
+    return {"Message": "you deleted a comment, you go bully!"}, 200
