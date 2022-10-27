@@ -5,7 +5,7 @@ function QuestionListItem({ question }) {
   return (
     <div>
       <NavLink to={`/questions/${question.id}`}>
-        {question.title}
+        <h3 className='qli-title'>{question.title}</h3>
       </NavLink>
       {question.body}
     </div>

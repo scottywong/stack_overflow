@@ -4,12 +4,14 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import logo from '../../assets/logo-stackoverflow.png';
+import { useHistory } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
   const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     user ? setIsLoggedIn(true) : setIsLoggedIn(false)
@@ -23,25 +25,20 @@ const NavBar = () => {
       <a href="/" className='logo'>
           <img className='logo' src={logo}/>
       </a>
-      <nav className='navBar'>
+      <nav className='navBar-ul-container'>
         <ul className='navBar-ul'>
-          <li>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-          </li>
           {!isLoggedIn && 
             <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
+              <button onClick={()=> history.push('/login')} exact={true} activeClassName='active'>
                 Login
-              </NavLink>
+              </button>
             </li>
           }
           {!isLoggedIn && 
             <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active' >
+              <button onClick={()=> history.push('/sign-up')} exact={true} activeClassName='active' >
                 Sign Up
-              </NavLink>
+              </button>
             </li>
             }
           <li>

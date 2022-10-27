@@ -5,7 +5,11 @@ const HomePage = () => {
 
     return (
     <div className="homepage-container">
-        <h1>My Home Page</h1>
+        <div className='question-nav'>
+            <div className='question-nav-header'><h1>All Questions</h1></div>
+            <button>Ask Question</button>
+        </div>
+
         <QuestionList/>
     </div>
     )
