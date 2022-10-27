@@ -1,14 +1,11 @@
-import { paperClasses } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createQuestions } from '../../../store/questions';
+import { fetchCreateQuestions, fetchAllQuestions } from '../../../store/questions';
 import './QuestionCreateForm.css';
 
-function QuestionCreateForm() {
+function QuestionCreateForm({ setShowModal }) {
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.session.user);
-  // const questions = Object.values(useSelector(state => state.questions))
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
@@ -21,10 +18,10 @@ function QuestionCreateForm() {
       body
     }
 
-    const createdQuestion = await dispatch(createQuestions(payload))
-      // .then(() => {
-      //   setShowModal(false)
-      // })
+    const createdQuestion = await dispatch(fetchCreateQuestions(payload))
+      .then(() => {
+        setShowModal(false)
+      })
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors);
@@ -57,10 +54,11 @@ function QuestionCreateForm() {
           value={body}
           onChange={(e) => setBody(e.target.value)}
           name='body'
+          placeholder='What are the details of your problem?'
         />
       </label>
       <button type='submit'>Submit your question</button>
-      <button>Cancel</button>
+      <button onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   )
 }

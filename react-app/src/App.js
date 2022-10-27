@@ -9,6 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { Modal } from './context/Modal'
 
 import QuestionDetailPage from './components/Questions/QuestionDetailPage';
 import HomePage from './components/Home';
@@ -37,25 +38,31 @@ function App() {
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+          <SignUpForm/>
         </Route>
-        <ProtectedRoute path='/profile' exact={true} >
-          <Profile/>
+        <ProtectedRoute path='/profile' exact={true}>
+          <Profile />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        <ProtectedRoute path='/users' exact={true}>
+          <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/questions/:questionId' exact={true} >
+        <ProtectedRoute path='/questions/:questionId' exact={true}>
           <QuestionDetailPage />
         </ProtectedRoute>
+<<<<<<< HEAD
         <ProtectedRoute path='/' exact={true} >
           <HomePage/>
+=======
+        <ProtectedRoute path='/home' exact={true}>
+          <h1>My Home Page</h1>
+          <QuestionList />
+>>>>>>> fe_questions
         </ProtectedRoute>
       </Switch>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }
