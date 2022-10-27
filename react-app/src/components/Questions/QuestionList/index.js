@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllQuestions } from '../../../store/questions';
 import { NavLink } from 'react-router-dom';
+import QuestionListItem from '../QuestionListItem';
 // import './QuestionList.css';
 
 function QuestionList() {
@@ -31,8 +32,8 @@ function QuestionList() {
                     <div key={question.id}>
                         {/* <NavLink> */}
                             <div>
-                                {question.title}
-                                {question.body}
+                            <QuestionListItem question={question} />
+                                
                             </div>
                         {/* </NavLink> */}
                     </div>

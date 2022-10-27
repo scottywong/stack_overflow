@@ -1,7 +1,7 @@
 // ******** Question Constants ********
 const GET_ALL_QUESTIONS = 'questions/get';
 const GET_USER_QUESTIONS = 'user_questions/get';
-const GET_QUESTION = 'questions/get';
+const GET_QUESTION = 'question/get';
 const CREATE_QUESTIONS = 'questions/create';
 const EDIT_QUESTIONS = 'questions/edit';
 const DELETE_QUESTIONS = 'questions/delete';
@@ -153,6 +153,7 @@ const questionsReducer = (state = initialState, action) => {
         case GET_ALL_QUESTIONS:
             console.log('NEW STATE BEFORE', newState)
             newState.all_questions = {}
+            console.log("Action.Payload", action.payload)
             action.payload['Questions'].forEach(question => newState.all_questions[question.id] = question)
             console.log('NEW STATE AFTER', newState)
             return newState;
@@ -161,7 +162,9 @@ const questionsReducer = (state = initialState, action) => {
             action.payload['Questions'].forEach(question => newState.user_questions[question.id] = question)
             return newState;
         case GET_QUESTION:
-            newState = action.payload;
+            console.log('GET A QUESTION REDUCER', action.payload)
+            newState.one_question = {}
+            newState.one_question = action.payload;
             return newState;
         case CREATE_QUESTIONS:
             newState = { ...state, [action.payload.id]: action.payload }
