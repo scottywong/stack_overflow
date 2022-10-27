@@ -6,7 +6,7 @@ function Answer({answer}) {
 
     return (
         <div className="answer-container">
-        <p>{answer.body}</p>
+        <p>{answer?.body}</p>
 
         {answer?.Comments && 
 

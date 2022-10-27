@@ -4,8 +4,8 @@ import './Question.css';
 function Question({ question }) {
   return (
     <div>
-      <h4>{question.title}</h4>
-      <p>{question.body}</p>
+      <h4>{question?.title}</h4>
+      <p>{question?.body}</p>
       <div>
         <button>Edit Question</button>
         <button>Delete Question</button>

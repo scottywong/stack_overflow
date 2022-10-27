@@ -11,7 +11,7 @@ const parsedId = parseInt(questionId, 10);
 const dispatch = useDispatch();
 
 const question = useSelector(state => state.questions);
-const { Answers } = question
+const answers  = question.one_question?.Question?.Answers
 
 useEffect(() => {
   dispatch(fetchQuestion(parsedId))
@@ -19,10 +19,10 @@ useEffect(() => {
 
   return (
     <div>
-        <Question question={question} />
-        <AnswerList answerList={Answers} />
+      <Question question={question.one_question?.Question} />
+      <AnswerList answerList={answers} />
     </div>
-  )
+  );
 }
 
 export default QuestionDetailPage
