@@ -1,5 +1,5 @@
 from .db import db
-
+from flask_login import login_required, current_user
 from .comment import Comment
 from .vote import Vote
 from datetime import datetime
@@ -29,6 +29,29 @@ class Answer(db.Model):
             'created_on': self.created_on,
             'updated_on': self.updated_on
         }
+    def get_votes(self):
+        count = 0
+        voted = True
+        upVote = Vote.query.filter(Vote.answerId == self.id).filter(Vote.voteDirection=='Up').all()
+        if upVote is None:
+            up = 0
+        else:
+            up = len(upVote)
+        downVote = Vote.query.filter(Vote.answerId == self.id).filter(Vote.voteDirection=='Down').all()
+        if downVote is None:
+            down = 0
+        else:
+            down = len(downVote)
+        count = count + up 
+        count = count - down
+        hasVoted = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).all()
+        print(len(hasVoted))
+        if len(hasVoted) == 0 :
+            voted = False
+        return { 
+            "total" : count,
+            "hasVoted" : voted
+        }
 
     def to_dict2(self):
         return {
@@ -39,5 +62,5 @@ class Answer(db.Model):
             'created_on': self.created_on,
             'updated_on': self.updated_on,
             'Comments' : [comment.to_dict() for comment in self.comments],
-            'Votes' : [vote.to_dict() for vote in self.votes]
+            'Votes' : self.get_votes()
         }
