@@ -2,10 +2,10 @@ import { useState , useEffect} from "react";
 import { useDispatch , useSelector} from "react-redux";
 import { useParams,useHistory } from 'react-router-dom';
 import { fetchEditAnswer } from "../../../store/answers";
-import './AnswerCreateForm.css'
+// import './AnswerCreateForm.css'
 
 
-function AnswerEditForm() {
+function AnswerEditForm({ setShowEditModal }) {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -28,6 +28,7 @@ function AnswerEditForm() {
 
     return (
         <div className="answerCreateForm-container">
+            <h2>Edit Answer</h2>
             <ul className="errorMsg">
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
@@ -42,7 +43,8 @@ function AnswerEditForm() {
                 required
             >
             </input>
-
+            <button>Edit</button>
+            <button onClick={() => setShowEditModal(false)}>Cancel</button>
             </form>
         </div>
     )

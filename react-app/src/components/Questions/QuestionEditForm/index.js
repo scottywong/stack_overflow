@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { fetchEditQuestions, fetchQuestion } from '../../../store/questions';
 import './QuestionEditForm.css';
 
-function QuestionEditForm() {
+function QuestionEditForm({ setShowEditModal }) {
   const { questionId } = useParams();
   const parsedId = parseInt(questionId, 10);
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ function QuestionEditForm() {
 
     const editedQuestion = dispatch(fetchEditQuestions(payload))
       .then(() => {
-        // setShowEditModal(false);
-        history.push('/user/questions')
+        setShowEditModal(false);
+        history.push(`/questions/${questionId}`)
       })
       .catch(async (res) => {
         const data = await res.json();
@@ -56,6 +56,7 @@ function QuestionEditForm() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           name='title'
+          placeholder='Title'
         />
       </label>
       <label>
