@@ -1,5 +1,5 @@
 ### Backend Routes
-Prepend all routes below with /API
+Prepend all routes below with /api
 
 ### /auth/login
 POST credentials for authentication
@@ -192,22 +192,10 @@ Status Code: 200
                     }
                 ],
                 "Votes": 
-                [
-                    {
-
-                        "id": 1,
-                        "userId": 1,
-                        "answerId": 1,
-                        "voteDirection": "Up"
-                    },
-                    {
-
-                        "id": 2,
-                        "userId": 2,
-                        "answerId": 1,
-                        "voteDirection": "Down"
-                    }
-                ]
+                {
+                    "hasVoted" : false,
+                    "total" : -1
+                }
             }
         ]
     }
@@ -452,5 +440,24 @@ Status Code: 200
             "voteDirection": "Down"
         }
     ]
+}
+```
+### /votes/:voteId
+DELETE a specific vote
+
+Require Authentication: TRUE
+
+Request Body:
+N/A
+
+Response Body
+
+Status Code: 200
+
+```
+{
+    "message": "Successfully deleted",
+    "Status Code": 200
+    
 }
 ```
