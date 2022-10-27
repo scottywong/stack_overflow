@@ -18,7 +18,7 @@ useEffect(() => {
 }, [dispatch])
 
   return (
-    <div>
+    <div className='qdp-container'>
       <Question question={question.one_question?.Question} />
       <AnswerList answerList={answers} />
     </div>

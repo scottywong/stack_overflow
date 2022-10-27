@@ -52,14 +52,8 @@ function App() {
         <ProtectedRoute path='/questions/:questionId' exact={true}>
           <QuestionDetailPage />
         </ProtectedRoute>
-<<<<<<< HEAD
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
           <HomePage/>
-=======
-        <ProtectedRoute path='/home' exact={true}>
-          <h1>My Home Page</h1>
-          <QuestionList />
->>>>>>> fe_questions
         </ProtectedRoute>
       </Switch>
       <Footer />

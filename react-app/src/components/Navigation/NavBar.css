@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .navBar-container{
 
     display: flex;
@@ -37,31 +36,3 @@
     width: 200px;
     height:auto;
 }
-=======
-.navBar{
-    background-color: rgb(235, 234, 234);
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    width: 100vw;
-    border-top: 1px solid orange;
-}
-
-.navBar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    width: 100vw;
-    text-decoration: none;
-}
-
-.login-btn {
-    background-color: rgb(98, 187, 246);
-    color: white;
-    box-shadow: 1px 1px 5px silver;
-    border-radius: 5px;
-}
-
->>>>>>> fe_questions
