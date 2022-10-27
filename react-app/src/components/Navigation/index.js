@@ -27,6 +27,13 @@ const NavBar = () => {
       </a>
       <nav className='navBar-ul-container'>
         <ul className='navBar-ul'>
+        {!isLoggedIn && 
+            <li>
+              <button onClick={()=> history.push('/login')} exact={true} activeClassName='active'>
+                Demo User
+              </button>
+            </li>
+          }
           {!isLoggedIn && 
             <li>
               <button onClick={()=> history.push('/login')} exact={true} activeClassName='active'>

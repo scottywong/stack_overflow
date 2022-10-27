@@ -6,18 +6,18 @@ function Answer({answer}) {
 
     return (
         <div className="answer-container">
-        <p>{answer?.body}</p>
+            <p>{answer?.body}</p>
 
-        {answer?.Comments && 
+            {answer?.Comments && 
 
-            <CommentList commentList={answer.Comments}></CommentList>
-        } 
+                <CommentList commentList={answer.Comments}></CommentList>
+            } 
 
-        <div>
-            <button>Edit Answer</button>
-            <button>Delete Answer</button>
-            <button>Post Comment</button>
-        </div>
+            <div className='answer-actions-container'>
+                <button>Edit Answer</button>
+                <button>Delete Answer</button>
+                <button>Post Comment</button>
+            </div>
         </div>
     )
 

@@ -5,7 +5,7 @@ import './CommentList.css'
 function CommentList({commentList}) {
 
     return (
-        <div className="commentList-container"> 
+        <div className="cl-container"> 
         { commentList && 
         commentList.map(comment => {
             return <CommentListItem comment={comment}></CommentListItem>

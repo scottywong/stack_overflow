@@ -4,9 +4,9 @@ import './CommentListItem.css'
 function CommentListItem({comment}) {
 
     return (
-        <div className="commentListItem-container">
-        <p>{comment?.body}</p>
-        <button>Delete Comment</button>
+        <div className="cli-container">
+            <p>{comment?.body}</p>
+            <button>Delete Comment</button>
         </div>
     )
 }
