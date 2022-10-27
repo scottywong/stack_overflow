@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
 from app.models import db, Answer, Comment, Vote
-from app.forms import AnswerForm, CommentForm
+from app.forms import AnswerForm, CommentForm, VoteForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
 answer_routes = Blueprint('answers', __name__)
@@ -17,7 +17,7 @@ def create_comment(answerId):
     answer = Answer.query.get(answerId)
     if answer is None:
         return {"errors": ["can't find this answer, bully!"]}, 404
-
+    
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -90,6 +90,10 @@ def create_vote(answerId):
     if answer.userId == current_user.id:
         return {"errors": ["can't vote on your own answer, bully!"]}, 401
 
+    hasVoted = Vote.query.filter(answer.id == Vote.answerId).filter(current_user.id == Vote.userId).all()
+    if len(hasVoted) > 0:
+        return {"errors": ["already voted on this answer, bully!"]}, 404
+
     form = VoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -99,8 +103,8 @@ def create_vote(answerId):
             answerId=answerId,
             voteDirection=form.data['voteDirection']
         )
-        db.session.add(new_comment)
+        db.session.add(new_vote)
         db.session.commit()
-        return new_comment.to_dict(), 200
+        return new_vote.to_dict(), 200
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
