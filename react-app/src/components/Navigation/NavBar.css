@@ -1,5 +1,38 @@
-.navBar{
+.navBar-container{
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    background-color: #f8f9f9;
+}
+
+
+.navBar-top{
+
+    height: 5px;
+    background-color: #f48225;
+    margin-bottom:0.1em;
+    padding-top: none;
+}
+
+.navBar-ul > li {
+    list-style: none;
+}
+
+.navBar-ul > li:hover {
+    background-color: rgb(199, 198, 198);
+}
+
+.navBar-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 1rem;
+}
+
+.logo{
+
+    width: 200px;
+    height:auto;
 }

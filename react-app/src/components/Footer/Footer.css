@@ -1,0 +1,39 @@
+.footer-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #232629;
+}
+
+.footer--pin {    
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+.footer-link-container{
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right:10%;
+
+}
+
+.footer-link-container > i {
+    flex-grow: 1;
+    margin: 20px;
+}
+.footer-link-container > i:hover{
+    cursor: pointer;
+}
+
+#footer-name{
+    color:white;
+}
+
+.logo-footer-image{
+    width:80px;
+    height: auto;
+}

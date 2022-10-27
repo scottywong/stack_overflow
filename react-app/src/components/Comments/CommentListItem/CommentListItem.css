@@ -1,0 +1,11 @@
+.cli-container{
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e3e6e8;
+        margin-bottom: 50px;
+    
+}

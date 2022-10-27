@@ -9,9 +9,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { Modal } from './context/Modal'
 
-import QuestionList from './components/Questions/QuestionList';
 import QuestionDetailPage from './components/Questions/QuestionDetailPage';
+import HomePage from './components/Home';
 import Footer from './components/Footer';
 
 function App() {
@@ -37,26 +38,25 @@ function App() {
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+          <SignUpForm/>
         </Route>
-        <ProtectedRoute path='/profile' exact={true} >
-          <Profile/>
+        <ProtectedRoute path='/profile' exact={true}>
+          <Profile />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        <ProtectedRoute path='/users' exact={true}>
+          <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/questions/:questionId' exact={true} >
+        <ProtectedRoute path='/questions/:questionId' exact={true}>
           <QuestionDetailPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <QuestionList/>
+        <ProtectedRoute path='/home' exact={true} >
+          <HomePage/>
         </ProtectedRoute>
       </Switch>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

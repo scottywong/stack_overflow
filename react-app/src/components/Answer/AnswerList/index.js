@@ -7,7 +7,10 @@ function AnswerList({answerList}) {
 
     return (
         <div className="answerList-container">
-
+            
+        <div className="answerList-size">
+            <h4>{answerList?.length} Answers</h4>
+        </div>
         { answerList && 
         answerList.map(answer => {
             return <Answer answer={answer}> </Answer>

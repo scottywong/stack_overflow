@@ -7,7 +7,7 @@ function AnswerListItem({answer}) {
 
     return (
         <div className='answerListItem-container'>
-        <p>{answer.body}</p>
+        <p>{answer?.body}</p>
         </div>
     ); 
 }

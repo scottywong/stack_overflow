@@ -1,0 +1,21 @@
+
+
+.homepage-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+.question-nav{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.question-nav-header{
+    
+    width: 300px;
+}
