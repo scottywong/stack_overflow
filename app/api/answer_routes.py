@@ -77,7 +77,7 @@ def delete_answer(answerId):
     return {"Message": "you deleted an answer, you go bully!"}, 200
 
 
-@answer_routes.route('/<int:answerId/votes>', methods=['POST'])
+@answer_routes.route('/<int:answerId>/votes', methods=['POST'])
 @login_required
 def create_vote(answerId):
     """
