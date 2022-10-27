@@ -12,6 +12,12 @@ function Answer({answer}) {
 
             <CommentList commentList={answer.Comments}></CommentList>
         } 
+
+        <div>
+            <button>Edit Answer</button>
+            <button>Delete Answer</button>
+            <button>Post Comment</button>
+        </div>
         </div>
     )
 

@@ -36,7 +36,7 @@ function AnswerEditForm() {
             Body
             </label>
             <input
-                type='text'
+                type='textarea'
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
                 required

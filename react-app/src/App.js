@@ -10,8 +10,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
-import QuestionList from './components/Questions/QuestionList';
 import QuestionDetailPage from './components/Questions/QuestionDetailPage';
+import HomePage from './components/Home';
 import Footer from './components/Footer';
 
 function App() {
@@ -52,8 +52,7 @@ function App() {
           <QuestionDetailPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <QuestionList/>
+          <HomePage/>
         </ProtectedRoute>
       </Switch>
       <Footer/>

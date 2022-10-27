@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+
+button{
+
+    background-color: #0a95ff;
+    color:white;
+    padding: 0.8em;
+    box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 40%);
+    border: none;
+    border-radius: 2px;
+
+}

@@ -8,8 +8,9 @@ function CommentList({commentList}) {
         <div className="commentList-container"> 
         { commentList && 
         commentList.map(comment => {
-            return <CommentListItem commentListItem={comment}></CommentListItem>
+            return <CommentListItem comment={comment}></CommentListItem>
         })} 
+
         </div>
     )
 
