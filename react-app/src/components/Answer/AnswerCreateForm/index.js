@@ -10,7 +10,7 @@ function AnswerCreateForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {questionId} = useParams();
-    
+
     const [body,setBody] = useState('');
     const [errors,setErrors] = useState([]);
 
@@ -49,3 +49,5 @@ function AnswerCreateForm() {
 
 
 }
+
+export default AnswerCreateForm;
