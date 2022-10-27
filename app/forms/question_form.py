@@ -5,5 +5,5 @@ from app.models import User, Question
 
 
 class QuestionForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired()])
-    body = StringField('body', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired(), Length(max=200, message=None)])
+    body = StringField('body', validators=[DataRequired(), Length(max=2000, message=None)])
