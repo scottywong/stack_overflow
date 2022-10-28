@@ -24,7 +24,7 @@ const NavBar = () => {
     <div className='navBar-top'/>
   
     <div className='navBar-container'>
-      <a href="/" className='logo'>
+      <a href="/home" className='logo'>
           <img className='logo' src={logo}/>
       </a>
       <nav className='navBar-ul-container'>
@@ -38,30 +38,14 @@ const NavBar = () => {
             </li>
           }
           {!isLoggedIn && 
-
-          <div>
-            <li>
-              <button onClick={()=> history.push('/login')} exact={true} activeClassName='active'>
-                Login
-              </button>
-            </li>
             <li>
                 <LoginFormModal />
             </li>
-            </div>
-              
           }
           {!isLoggedIn && 
-            <div>
-            <li>
-              <button onClick={()=> history.push('/sign-up')} exact={true} activeClassName='active' >
-                Sign Up
-              </button>
-            </li>
                 <li>
                 <SignUpFormModal />
               </li>
-          </div>
             }
           <li>
             <NavLink to='/users' exact={true} activeClassName='active'>

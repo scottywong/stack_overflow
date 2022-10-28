@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import './QuestionListItem.css';
 
 function QuestionListItem({ question }) {
   return (
-    <div>
+    <div className='qli-container'>
       <NavLink className="qli-link" to={`/questions/${question.id}`}>
-        <h3 className='qli-title'>{question.title}</h3>
+        <h3 className='qli-title'>{question?.title}</h3>
       </NavLink>
-      {question.body}
+      <p>{question?.body}</p>
     </div>
   );
 }
