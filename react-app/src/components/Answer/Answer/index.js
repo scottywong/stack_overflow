@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import CommentCreateForm from '../../Comments/CommentCreateForm.js';
 import CommentList from '../../Comments/CommentList'
@@ -9,14 +10,13 @@ function Answer({answer}) {
     const [showEditModal, setShowEditModal] = useState(false);
     const [deleteAnswerModal, setDeleteAnswerModal] = useState(false);
     const [commentModal, setCommentModal] = useState(false);
-    
 
     return (
       <div className='answer-container'>
         <p>{answer?.body}</p>
 
         {answer?.Comments && (
-          <CommentList commentList={answer.Comments}></CommentList>
+          <CommentList answerId={answer?.id}></CommentList>
         )}
         <div className='answer-actions-container'>
           <button onClick={() => setShowEditModal(true)}>Edit Answer</button>
