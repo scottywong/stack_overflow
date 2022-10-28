@@ -8,7 +8,7 @@
 }
 
 .footer--pin {    
-    position:static;
+    position: absolute;
     left: 0;
     bottom: 0;
   }

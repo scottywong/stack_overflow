@@ -8,6 +8,8 @@ function CommentCreateForm({ answerId, setCommentModal }) {
     const [body, setBody] = useState('');
     const [errors, setErrors] = useState([]);
 
+    console.log('Answer ID:', answerId)
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -26,7 +28,7 @@ function CommentCreateForm({ answerId, setCommentModal }) {
         onChange={(e) => setBody(e.target.value)}
       />
       <button>Submit</button>
-      <button onClick={() => setCommentModal(false)}>Cancel</button>
+      {/* <button onClick={setCommentModal(false)}>Cancel</button> */}
     </form>
   );
 }

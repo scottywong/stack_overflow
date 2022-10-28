@@ -10,9 +10,8 @@ const { questionId } = useParams();
 const parsedId = parseInt(questionId, 10);
 const dispatch = useDispatch();
 
-const questions = useSelector(state => state.questions);
-const answers  = questions.one_question?.Question?.Answers
-const comments = useSelector(state => state.comments )
+const question = useSelector(state => state.questions);
+const answers  = question.one_question?.Question?.Answers
 
 useEffect(() => {
   dispatch(fetchQuestion(parsedId))
@@ -20,8 +19,8 @@ useEffect(() => {
 
   return (
     <div className='qdp-container'>
-      <Question question={questions.one_question?.Question} />
-      <AnswerList questionId={parsedId} />
+      <Question question={question.one_question?.Question} />
+      <AnswerList answerList={answers} />
     </div>
   );
 }

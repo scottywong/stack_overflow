@@ -7,18 +7,6 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 answer_routes = Blueprint('answers', __name__)
 
-@answer_routes.route('/<int:answerId>/comments', methods=['GET'])
-@login_required
-def get_comments(answerId):
-    """
-    Get all comments for an answer by answerId
-    """
-    comments = Answer.query.get(answerId).to_dict2().get('Comments')
-  
-    if comments is None:
-        return {"errors": ["can't find this answer, bully!"]}, 404
-    
-    return {"Comments" : comments} , 200
 
 @answer_routes.route('/<int:answerId>/comments', methods=['POST'])
 @login_required
@@ -41,7 +29,6 @@ def create_comment(answerId):
         )
         db.session.add(new_comment)
         db.session.commit()
-
         return new_comment.to_dict(), 200
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
