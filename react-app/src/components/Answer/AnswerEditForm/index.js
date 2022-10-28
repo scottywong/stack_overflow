@@ -2,18 +2,17 @@ import { useState , useEffect} from "react";
 import { useDispatch , useSelector} from "react-redux";
 import { useParams,useHistory } from 'react-router-dom';
 import { fetchEditAnswer } from "../../../store/answers";
-// import './AnswerCreateForm.css'
+import './AnswerEditForm.css'
 
 
-function AnswerEditForm({ setShowEditModal }) {
+function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
 
     const dispatch = useDispatch();
     const history = useHistory();
     const {questionId} = useParams();
 
-    const [body,setBody] = useState('');
+    const [body,setBody] = useState(answer.body);
     const [errors,setErrors] = useState([]);
-
 
     const onSubmit = async(e) => {
 
@@ -23,7 +22,9 @@ function AnswerEditForm({ setShowEditModal }) {
             body
         }
 
-        return dispatch(fetchEditAnswer(payload,questionId))
+        return dispatch(fetchEditAnswer(payload,answer?.id)).then(
+            refreshQuestion()).then(
+                setShowEditModal(false))
     }
 
     return (
@@ -36,13 +37,12 @@ function AnswerEditForm({ setShowEditModal }) {
             <label>
             Body
             </label>
-            <input
-                type='textarea'
+            <textarea
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
                 required
             >
-            </input>
+            </textarea>
             <button>Edit</button>
             <button onClick={() => setShowEditModal(false)}>Cancel</button>
             </form>

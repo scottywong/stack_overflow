@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Answer from '../Answer';
 import './AnswerList.css'
 
-function AnswerList({answerList}) {
+function AnswerList({answerList, refreshQuestion}) {
 
     return (
         <div className="answerList-container">
@@ -13,7 +13,7 @@ function AnswerList({answerList}) {
         </div>
         { answerList && 
         answerList.map(answer => {
-            return <Answer answer={answer}> </Answer>
+            return <Answer answer={answer} refreshQuestion={refreshQuestion}> </Answer>
         })} 
         </div>
     )

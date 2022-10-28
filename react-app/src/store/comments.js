@@ -1,24 +1,24 @@
 // ******** Comments Constraints ********
-const CREATE_COMMENTS = 'comments/create';
-const DELETE_COMMENTS = 'comments/delete';
+const CREATE_COMMENT = 'comments/create';
+const DELETE_COMMENT = 'comments/delete';
 
 // ******** Comments Actions ********
 
-// CREATE Comments
-export const createComments = (comments, answerId) => {
+// CREATE Comment
+export const createComment = (comment, answerId) => {
     return {
-        type: CREATE_COMMENTS,
+        type: CREATE_COMMENT,
         payload: {
-            comments,
+            comment,
             answerId
         }
     }
 }
 
-// DELETE Comments
-export const deleteComments = (id) => {
+// DELETE Comment
+export const deleteComment = (id) => {
     return {
-        type: DELETE_COMMENTS,
+        type: DELETE_COMMENT,
         payload: id
     }
 }
@@ -26,7 +26,7 @@ export const deleteComments = (id) => {
 // ******** Comments THUNKS ********
 
 // CREATE Comments Thunk
-export const fetchCreateComments = (answerId, comments) => async (dispatch) => {
+export const fetchCreateComment = (answerId, comments) => async (dispatch) => {
   const res = await fetch(`/api/answers/${answerId}/comments`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -35,21 +35,21 @@ export const fetchCreateComments = (answerId, comments) => async (dispatch) => {
 
   if (res.ok){
     const comment = await res.json();
-    dispatch(createComments(comment, answerId));
+    dispatch(createComment(comment, answerId));
     return comment;
   };
   return res;
 };
 
-// DELETE Comments Thunk
-export const fetchDeleteComments = (commentId) => async (dispatch) => {
+// DELETE Comment Thunk
+export const fetchDeleteComment = (commentId) => async (dispatch) => {
     const res = await fetch(`/api/comments/${commentId}`, {
         method: 'DELETE'
     });
 
     if (res.ok){
         const comment = await res.json();
-        dispatch(deleteComments(comment));
+        dispatch(deleteComment(comment));
         return comment;
     }
     return res;
@@ -61,10 +61,10 @@ const initialState = {};
 const commentsReducer = (state = initialState, action) => {
     let newState = {...state};
     switch(action.type){
-        case CREATE_COMMENTS:
-            newState = {...state, [action.payload.id]: action.payload}
+        case CREATE_COMMENT:
+            newState = {...state, [action.payload.comment.id]: action.payload.comment}
             return newState;
-        case DELETE_COMMENTS:
+        case DELETE_COMMENT:
             delete newState[action.payload];
             return newState;
         default:
