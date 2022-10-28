@@ -24,22 +24,24 @@ function AnswerCreateForm({ setShowAnswerModal }) {
   };
 
   return (
-    <div className='answerCreateForm-container'>
-        <h2>Post your answer</h2>
-      <ul className='errorMsg'>
+    <div className="answerCreateForm-container">
+      <h2 className="answerCreateForm-h2">Post Your Answer</h2>
+      <ul className="errorMsg">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <form className='answerCreateForm' onSubmit={onSubmit}>
-        <label>Body</label>
+      <form className="answerCreateForm" onSubmit={onSubmit}>
+        {/* <label className="answerCreateForm-label">Body</label> */}
         <input
-          type='text'
+          className="answerCreateForm-input"
+          type="text"
+          placeholder="Write answer here"
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required
         ></input>
-        <button>Submit</button>
+        <button className="submitAnswerCreateForm-button">Submit</button>
         <button onClick={() => setShowAnswerModal(false)}>Cancel</button>
       </form>
     </div>
