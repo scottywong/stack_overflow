@@ -120,14 +120,14 @@ export const fetchDeleteAnswer =  (answerId) => async (dispatch) => {
 
 export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => {
     let response;
-    console.log(JSON.stringify({'voteDirection': voteDirection}));
+    console.log(JSON.stringify({voteDirection}));
     response = await fetch(`/api/answers/${answerId}/votes`,
     {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({'voteDirection': voteDirection})
+        body: JSON.stringify({ voteDirection})
       }
     );
 
@@ -142,7 +142,7 @@ export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => 
 
 export const fetchDeleteVote =  (voteId) => async (dispatch) => {
     let response;
-    response = await fetch(`/api/votes/${voteId}`);
+    response = await fetch(`/api/votes/${voteId}`,{method: 'DELETE'});
 
     if(response.ok){
         const answer = await response.json();

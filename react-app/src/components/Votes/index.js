@@ -8,14 +8,18 @@ const Votes = ({answer, refreshQuestion}) => {
 
     const dispatch = useDispatch();
     
-    
     const handleClearVote = async (e) => {
         
         e.preventDefault(); 
 
-        return dispatch(fetchDeleteVote(answer?.Votes?.id))
+        return dispatch(fetchDeleteVote(answer?.Votes?.voteId))
         .then(refreshQuestion())
-        .then(refreshQuestion());  //double refresh to ensure changes are reflected on Question
+        .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
+        .then(
+            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+                e => e.style.setProperty('--vote-caret-hover-cursor', 'pointer')
+            )
+        )
     }
 
     const handleUpVote = async(e) => {
@@ -23,26 +27,40 @@ const Votes = ({answer, refreshQuestion}) => {
         return dispatch(fetchCreateVote(answer?.id,"Up"))
         .then(refreshQuestion())
         .then(refreshQuestion())
-       
+        .then(
+            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+                e => e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed')
+            )
+        ) 
     }
 
     const handleDownVote = async(e) => {
 
         return dispatch(fetchCreateVote(answer?.id,"Down"))
         .then(refreshQuestion())
-        .then(refreshQuestion());
+        .then(refreshQuestion())
+        .then(
+
+            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+                e => e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed')
+            )
+
+            // console.log('query selector: ',  document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ))
+
+
+        )
     }
 
     return (
         <div className='votes-container'>
 
-            <div onClick={handleUpVote} className='vote-caret-container'>
+            <button disabled={answer?.Votes?.hasVoted} onClick={handleUpVote} className={`vote-caret-container vote-a-${answer.id}`}>
                 <i  className="fa-solid fa-caret-up fa-2xl"></i>
-            </div>
+            </button>
             <div className='vote-total'>{answer?.Votes?.total}</div>
-            <div onClick={handleDownVote} className='vote-caret-container down-caret'>
+            <button disabled={answer?.Votes?.hasVoted} onClick={handleDownVote} className={`vote-caret-container down-caret vote-a-${answer.id}`}>
                 <i className='fa-solid fa-caret-down fa-2xl'></i>
-            </div>
+            </button>
             {answer?.Votes?.hasVoted && 
             <a href='#' onClick={handleClearVote} className="clear-Vote">Clear Vote</a>
             }
