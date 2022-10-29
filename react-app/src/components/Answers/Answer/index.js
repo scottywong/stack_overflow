@@ -7,7 +7,7 @@ import CommentList from '../../Comments/CommentList'
 import AnswerEditForm from '../AnswerEditForm';
 import Votes from '../../Votes';
 import './Answer.css'
-import AnswerDelete from '../AnswerDelete.js';
+import AnswerDelete from '../AnswerDelete/index.js';
 
 function Answer({answer,refreshQuestion}) {
     const [showEditModal, setShowEditModal] = useState(false);
@@ -18,16 +18,6 @@ function Answer({answer,refreshQuestion}) {
 
     const dispatch = useDispatch();
     
-
-    // const handleDelete = async (e) => {
-    //   e.preventDefault();     
-    //   const choice = window.confirm("Are you sure you want to delete this answer?");
-    //   if (!choice) return
-      
-    //   return dispatch(fetchDeleteAnswer(answer?.id))
-    //   .then( refreshQuestion());
-    // }
-
     return (
       <div className='answer-container'>
         <Votes answer={answer} refreshQuestion={refreshQuestion} />

@@ -104,13 +104,14 @@ export const fetchEditAnswer =  (answer,answerId) => async (dispatch) => {
 }
 
 
-export const fetchDeleteAnswer =  () => async (dispatch) => {
+export const fetchDeleteAnswer =  (answerId) => async (dispatch) => {
     let response;
-    response = await fetch('/api/users/answers');
+    response = await fetch(`/api/answers/${answerId}`, {method: 'DELETE'});
 
     if(response.ok){
-        const answer = await response.json();
-        dispatch(deleteAnswer(answer.id));
+        const responseMessage = await response.json();
+        console.log('MESSAGE', responseMessage)
+        dispatch(deleteAnswer(answerId));
     };
 
     return response;
@@ -148,7 +149,7 @@ const answersReducer = (state = initialState, action) => {
                 newState[answer.id] = answer});
             return newState;
         case CREATE_ANSWER:
-            newState = { ...state, [action.payload.id]: action.payload }
+            newState = {[action.payload.answer.id]: action.payload.answer }
             return newState;
         case EDIT_ANSWER:
             newState = action.payload
