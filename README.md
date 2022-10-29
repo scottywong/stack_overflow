@@ -194,7 +194,8 @@ Status Code: 200
                 "Votes": 
                 {
                     "hasVoted" : false,
-                    "total" : -1
+                    "total" : -1,
+                    "voteId" : Null
                 }
             }
         ]
@@ -423,24 +424,12 @@ Status Code: 200
 
 ```
 {
-    "Votes": 
-    [
-        {
-
-            "id": 1,
-            "userId": 1,
-            "answerId": 1,
-            "voteDirection": "Up"
-        },
-        {
-
-            "id": 2,
-            "userId": 2,
-            "answerId": 1,
-            "voteDirection": "Down"
-        }
-    ]
+    "id": 2,
+    "userId": 2,
+    "answerId": 1,
+    "voteDirection": "Down"
 }
+    
 ```
 ### /votes/:voteId
 DELETE a specific vote

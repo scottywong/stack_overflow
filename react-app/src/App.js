@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import NavBar from './components/Navigation';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
+import LandingPage from './components/Landing-Page';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { Modal } from './context/Modal'
@@ -55,6 +56,9 @@ function App() {
         <ProtectedRoute path='/home' exact={true} >
           <HomePage/>
         </ProtectedRoute>
+        <Route path='/' >
+          <LandingPage />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

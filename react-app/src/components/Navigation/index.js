@@ -8,6 +8,7 @@ import LogoutButton from '../auth/LogoutButton';
 import logo from '../../assets/logo-stackoverflow.png';
 import { useHistory } from 'react-router-dom';
 import './NavBar.css';
+import DemoLoginModal from '../auth/DemoLoginModal';
 
 const NavBar = () => {
 
@@ -31,9 +32,7 @@ const NavBar = () => {
 
         {!isLoggedIn && 
             <li>
-              <button onClick={()=> history.push('/login')} exact={true} activeClassName='active'>
-                Demo User
-              </button>
+              <DemoLoginModal />
             </li>
           }
           {!isLoggedIn && 

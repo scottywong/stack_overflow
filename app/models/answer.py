@@ -48,10 +48,17 @@ class Answer(db.Model):
         print(len(hasVoted))
         if len(hasVoted) == 0 :
             voted = False
+        vote_id = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).first()
+        if vote_id is not None:
+            vid = vote_id.id
+        if vote_id is None:
+            vid = None        
         return { 
             "total" : count,
-            "hasVoted" : voted
+            "hasVoted" : voted,
+            "voteId" : vid
         }
+  
 
     def to_dict2(self):
         return {

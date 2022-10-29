@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { fetchCreateQuestions, fetchAllQuestions } from '../../../store/questions';
 import './QuestionCreateForm.css';
 
 function QuestionCreateForm({ setShowModal }) {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
@@ -22,6 +24,7 @@ function QuestionCreateForm({ setShowModal }) {
       .then(() => {
         setShowModal(false)
       })
+      .then(() => history.push('/profile'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors);
