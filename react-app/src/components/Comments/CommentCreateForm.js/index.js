@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { fetchCreateComments } from '../../../store/comments';
+import { fetchCreateComment } from '../../../store/comments';
 
-function CommentCreateForm({ answerId, setCommentModal }) {
+function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
     const dispatch = useDispatch();
 
     const [body, setBody] = useState('');
     const [errors, setErrors] = useState([]);
-
-    console.log('Answer ID:', answerId)
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -17,7 +15,10 @@ function CommentCreateForm({ answerId, setCommentModal }) {
             body
         };
 
-        return dispatch(fetchCreateComments(answerId, payload))
+        return dispatch(fetchCreateComment(answerId, payload))
+        .then(refreshQuestion())
+        .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
+        .then(setCommentModal(false));
     }
   return (
     <form onSubmit={onSubmit}>
@@ -28,7 +29,7 @@ function CommentCreateForm({ answerId, setCommentModal }) {
         onChange={(e) => setBody(e.target.value)}
       />
       <button>Submit</button>
-      {/* <button onClick={setCommentModal(false)}>Cancel</button> */}
+      <button onClick={() => setCommentModal(false)}>Cancel</button>
     </form>
   );
 }

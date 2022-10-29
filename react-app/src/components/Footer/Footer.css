@@ -5,13 +5,13 @@
     align-items: center;
     height: 100px;
     background-color: #232629;
+
+    
 }
 
 .footer--pin {    
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
+    margin-top: auto
+}
 
 .footer-link-container{
     display: flex;
