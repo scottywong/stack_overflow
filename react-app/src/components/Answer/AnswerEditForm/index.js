@@ -23,8 +23,8 @@ function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
         }
 
         return dispatch(fetchEditAnswer(payload,answer?.id)).then(
-            refreshQuestion()).then(
-                setShowEditModal(false))
+            refreshQuestion()).then(refreshQuestion()).then(
+            setShowEditModal(false))
     }
 
     return (

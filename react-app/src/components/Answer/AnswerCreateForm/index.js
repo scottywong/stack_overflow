@@ -5,7 +5,7 @@ import { fetchCreateAnswer } from "../../../store/answers";
 import './AnswerCreateForm.css'
 
 
-function AnswerCreateForm({ setShowAnswerModal }) {
+function AnswerCreateForm({ refreshQuestion,setShowAnswerModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const { questionId } = useParams();
@@ -20,7 +20,10 @@ function AnswerCreateForm({ setShowAnswerModal }) {
       body,
     };
 
-    return dispatch(fetchCreateAnswer(payload, questionId));
+    return dispatch(fetchCreateAnswer(payload, questionId))
+    .then(refreshQuestion())
+    .then(refreshQuestion())
+    .then( setShowAnswerModal(false));
   };
 
   return (
@@ -32,7 +35,6 @@ function AnswerCreateForm({ setShowAnswerModal }) {
         ))}
       </ul>
       <form className="answerCreateForm" onSubmit={onSubmit}>
-        {/* <label className="answerCreateForm-label">Body</label> */}
         <input
           className="answerCreateForm-input"
           type="text"

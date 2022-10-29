@@ -44,7 +44,7 @@ function Question({ question, refreshQuestion }) {
         <button onClick={() => setShowAnswerModal(true)}>Post Answer</button>
         {showAnswerModal && (
           <Modal onClose={() => setShowAnswerModal(false)}>
-            <AnswerCreateForm setShowAnswerModal={setShowAnswerModal} />
+            <AnswerCreateForm setShowAnswerModal={setShowAnswerModal} refreshQuestion={refreshQuestion} />
           </Modal>
         )}
       </div>
