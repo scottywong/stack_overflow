@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Question from '../Question';
-import AnswerList from '../../Answer/AnswerList';
+import AnswerList from '../../Answers/AnswerList';
 import { fetchQuestion } from '../../../store/questions';
 
 function QuestionDetailPage() {

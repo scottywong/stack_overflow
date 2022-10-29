@@ -4,7 +4,7 @@ import { useDispatch , useSelector} from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import { fetchDeleteQuestions } from '../../../store/questions';
 import QuestionEditForm from '../QuestionEditForm';
-import AnswerCreateForm from '../../Answer/AnswerCreateForm';
+import AnswerCreateForm from '../../Answers/AnswerCreateForm';
 import './Question.css';
 
 function Question({ question, refreshQuestion }) {

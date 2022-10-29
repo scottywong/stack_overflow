@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import { fetchDeleteAnswer } from '../../../store/answers';
-import CommentCreateForm from '../../Comments/CommentCreateForm.js';
+import CommentCreateForm from '../../Comments/CommentCreateForm.js/index.js';
 import CommentList from '../../Comments/CommentList'
 import AnswerEditForm from '../AnswerEditForm';
+import Votes from '../../Votes';
 import './Answer.css'
 
 function Answer({answer,refreshQuestion}) {
@@ -28,6 +29,8 @@ function Answer({answer,refreshQuestion}) {
 
     return (
       <div className='answer-container'>
+
+        <Votes answer={answer} refreshQuestion={refreshQuestion}/>
         <p>{answer?.body}</p>
 
         {answer?.Comments && (
