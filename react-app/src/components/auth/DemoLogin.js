@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
-const DemoLogin = ({ setShowModal }) => {
+const DemoLogin = () => {
   const [errors, setErrors] = useState([]);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -20,18 +20,9 @@ const DemoLogin = ({ setShowModal }) => {
     }
   };
 
-
-
   return (
     <form onSubmit={onLogin}>
-      <ul>
-       
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      
-      </ul>
-      
-      <button type="submit">Log In As Demo User</button>
- 
+      <button type="submit">Demo User</button>
     </form>
   );
 };
