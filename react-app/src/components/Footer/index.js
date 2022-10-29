@@ -6,6 +6,7 @@ import logo from '../../assets/Stack_Overflow_icon.svg.png';
 
 const Footer = () => {
   return (
+    <div className='foot-box'>
     <div className='footer-container footer--pin'>
       <a href="/" className='logo-footer'>
         <img className='logo-footer-image' src={logo}/>
@@ -15,6 +16,7 @@ const Footer = () => {
         <i onClick={() => window.open('https://app.asana.com/0/1203171290527127/board')} className="fa-solid fa-list-check fa-2xl"></i>
         <div id='footer-name'>Boolean Bullies  </div>
       </div>
+    </div>
     </div>
   );
 }
