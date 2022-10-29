@@ -137,6 +137,19 @@ export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => 
     return response;
 }
 
+
+export const fetchDeleteVote =  (voteId) => async (dispatch) => {
+    let response;
+    response = await fetch(`/api/votes/${voteId}`);
+
+    if(response.ok){
+        const answer = await response.json();
+        dispatch(deleteVote(voteId));
+    };
+
+    return response;
+}
+
 /******** Reducer ********/
 const initialState = {};
 
@@ -158,6 +171,9 @@ const answersReducer = (state = initialState, action) => {
             return newState;
         case CREATE_VOTE:
             newState = action.payload
+            return newState;
+        case DELETE_VOTE:
+            newState = action.payload;
             return newState;
         default:
             return newState;
