@@ -119,13 +119,14 @@ export const fetchDeleteAnswer =  () => async (dispatch) => {
 
 export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => {
     let response;
+    console.log(JSON.stringify({'voteDirection': voteDirection}));
     response = await fetch(`/api/answers/${answerId}/votes`,
     {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(voteDirection)
+        body: JSON.stringify({'voteDirection': voteDirection})
       }
     );
 

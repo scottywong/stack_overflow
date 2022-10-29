@@ -1,0 +1,21 @@
+
+.votes-container{
+    /* padding-left: 10px; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vote-caret-container:hover{
+    background-color: rgb(170, 165, 165);
+    /* cursor: var(--vote-caret-hover-cursor) */
+    cursor: pointer;
+}
+
+.vote-caret-container{
+    width:20px;
+}
+
+.down-caret{
+    margin-bottom: 10px;
+}
