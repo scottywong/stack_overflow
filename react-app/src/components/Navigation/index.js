@@ -22,7 +22,6 @@ const NavBar = () => {
   return (
     <>    
     <div className='navBar-top'/>
-  
     <div className='navBar-container'>
       <a href="/home" className='logo'>
           <img className='logo' src={logo}/>
