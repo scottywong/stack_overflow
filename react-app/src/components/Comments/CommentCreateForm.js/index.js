@@ -17,7 +17,7 @@ function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
 
         return dispatch(fetchCreateComment(answerId, payload)).then(
           setCommentModal(false)
-        ).then( refreshQuestion())
+        ).then( refreshQuestion()).then(refreshQuestion())
     }
   return (
     <form onSubmit={onSubmit}>

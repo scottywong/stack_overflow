@@ -13,15 +13,12 @@ const dispatch = useDispatch();
 const question = useSelector(state => state.questions);
 const answers  = question.one_question?.Question?.Answers
 
-
 const refreshQuestion = () => {
-
-  dispatch(fetchQuestion(parsedId)); // error, could not find the method
+  dispatch(fetchQuestion(parsedId));
 }
 
-
 useEffect(() => {
-  dispatch(fetchQuestion(parsedId));
+  refreshQuestion();
 }, [dispatch])
 
   return (
