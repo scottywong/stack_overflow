@@ -21,8 +21,8 @@ function AnswerCreateForm({ refreshQuestion,setShowAnswerModal }) {
     };
 
     return dispatch(fetchCreateAnswer(payload, questionId))
-    .then(refreshQuestion())
-    .then(refreshQuestion())
+    .then(refreshQuestion()) 
+    .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
     .then( setShowAnswerModal(false));
   };
 

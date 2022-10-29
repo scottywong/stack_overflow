@@ -14,8 +14,9 @@ function CommentListItem({comment,refreshQuestion}) {
         const choice = window.confirm("Are you sure you want to delete this comment?");
         if (!choice) return
         
-        return dispatch(fetchDeleteComment(comment?.id)).then( refreshQuestion())
-        .then(refreshQuestion());
+        return dispatch(fetchDeleteComment(comment?.id))
+        .then(refreshQuestion())
+        .then(refreshQuestion()); //double refresh to ensure changes are reflected on Question
     }
 
     return (
