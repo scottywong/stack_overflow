@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .landingPage-container {
     display: flex;
     flex-direction: column;
@@ -10,12 +12,18 @@
 
 .gray-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 700px;
+    height: 1000px;
     background-color: rgb(61, 58, 58);
     border-radius: 7px;
+}
+
+.orange-blue-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .orange-box {
@@ -23,7 +31,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(249, 214, 174);
+    background-color: rgb(248, 218, 184);
     height: 270px;
     width: 440px;
     border-radius: 7px;
@@ -72,15 +80,93 @@
     text-align: center;
 }
 
+.every-dev-text {
+    color: white;
+    font-family: 'Josefin Sans', cursive;
+    font-size: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
 .orange-button {
     color: white;
     font-weight: 500;
+    font-size: 14px;
     background-color: rgb(255, 115, 0);
     font-family: sans-serif;
     border-radius: 7px;
     width: 200px;
 }
 
-.fa-magnifying-glass {
+.orange-button:hover {
+    background-color: rgb(189, 122, 27);
+    transition: 0.2s;
+}
+
+.blue-button {
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #0a95ff;
+    font-family: sans-serif;
+    border-radius: 7px;
+    width: 200px;
+}
+
+.blue-button:hover {
+    background-color: rgb(9, 108, 183);
+    transition: 0.2s;
+}
+
+.fa-solid.fa-magnifying-glass {
     font-size: 50px;
+    color:rgb(255, 115, 0);
+}
+
+.fa-solid.fa-lock{
+    font-size: 50px;
+    color: #0a95ff;
+}
+
+.every-dev-text-container {
+    padding-left: 180px;
+    padding-right: 180px;
+    padding-top: 30px;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 90px;
+    margin-left: 90px;
+}
+
+.stats-ul-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Josefin Sans', cursive;
+    text-align: center;
+    font-size: 23px;
+    list-style: none;
+    padding: 0;
+}
+
+.p-text {
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 300;
+    color: rgb(192, 189, 189);
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.stats-headings {
+    padding-right: 18px;
+    padding-left: 18px;
 }
