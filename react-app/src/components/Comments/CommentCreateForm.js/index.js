@@ -21,15 +21,18 @@ function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
         .then(setCommentModal(false));
     }
   return (
-    <form onSubmit={onSubmit}>
-      <label>Body</label>
+    <form className='modal-container' onSubmit={onSubmit}>
+      <label className='modal-input-body-label'>Body</label>
       <input
+        className='modal-input-body'
         type='text'
         value={body}
         onChange={(e) => setBody(e.target.value)}
       />
-      <button>Submit</button>
-      <button onClick={() => setCommentModal(false)}>Cancel</button>
+      <div>
+        <button className='modal-btn modal-submit-btn'>Submit</button>
+        <button className='modal-btn modal-cancel-btn' onClick={() => setCommentModal(false)}>Cancel</button>
+      </div>
     </form>
   );
 }

@@ -22,4 +22,9 @@ html, body, #root {
     flex-direction: column;
 }
 
+.errors {
+    color: red;
+    font-size: 16px;
+}
+
    

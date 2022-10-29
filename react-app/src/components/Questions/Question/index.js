@@ -13,22 +13,8 @@ function Question({ question, refreshQuestion }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
 
-  const history = useHistory();
-  const dispatch = useDispatch();
-
   const sessionUser = useSelector(state => state.session.user); 
   const isOwner = sessionUser.id === question?.userId;
-   
-
-  // const handleDelete = async (e) => {
-  //   e.preventDefault();     
-  //   const choice = window.confirm("Are you sure you want to delete this question?");
-  //   if (!choice) return
-    
-  //   return dispatch(fetchDeleteQuestions(question?.id))
-  //   .then( refreshQuestion()).then(history.push('/home'));
-  // }
-
 
   return (
     <div className='q-container'>
@@ -38,7 +24,7 @@ function Question({ question, refreshQuestion }) {
         {isOwner && <button onClick={() => setShowEditModal(true)}>Edit Question</button>}
         {showEditModal && (
           <Modal onClose={() => setShowEditModal(false)}>
-            <QuestionEditForm setShowEditModal={setShowEditModal} />
+            <QuestionEditForm setShowEditModal={setShowEditModal} question={question} refreshQuestion={refreshQuestion}/>
           </Modal>
         )}
         {isOwner && <button onClick={() => setShowDeleteModal(true)}>Delete Question</button> }

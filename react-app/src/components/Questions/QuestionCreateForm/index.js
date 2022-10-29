@@ -34,36 +34,42 @@ function QuestionCreateForm({ setShowModal }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Ask a question</h2>
+    <form onSubmit={handleSubmit} className='modal-container'>
+      <h2 className='modal-form-title'>Ask a question</h2>
       <ul>
-        {validationErrors.map(error => 
-          <li className='errors' key={error}>{error}</li>
-        )}
+        {validationErrors.map((error) => (
+          <li className='errors' key={error}>
+            {error}
+          </li>
+        ))}
       </ul>
-      <label>
+      <label className='modal-input-title-label'>
         Title
-        <input 
+        <input
+          className='modal-input-title'
           type='text'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           name='title'
-          placeholder="be specific and imagine you're asking another person"
+          placeholder="Be specific ..."
         />
       </label>
-      <label>
+      <label className='modal-input-body-label'>
         Body
-        <textarea 
+        <textarea
+          className='modal-input-body'
           value={body}
           onChange={(e) => setBody(e.target.value)}
           name='body'
           placeholder='What are the details of your problem?'
         />
       </label>
-      <button type='submit'>Submit your question</button>
-      <button onClick={() => setShowModal(false)}>Cancel</button>
+      <div>
+        <button className='modal-btn modal-submit-btn' type='submit'>Submit your question</button>
+        <button className='modal-btn modal-cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      </div>
     </form>
-  )
+  );
 }
 
 export default QuestionCreateForm;
