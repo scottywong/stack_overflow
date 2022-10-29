@@ -2,15 +2,15 @@
 export const GET_USER_ANSWERS = 'answers/load';
 export const CREATE_ANSWER = 'answers/create'
 export const EDIT_ANSWER = 'answers/update';
-export const DELETE_ANSWER = 'answers/remove';
+export const DELETE_ANSWER = 'answers/delete';
+export const CREATE_VOTE = 'vote/create';
+export const DELETE_VOTE = 'vote/delete';
 
 /******** Actions ********/
 export const getUserAnswers = (answers) => ({
     type: GET_USER_ANSWERS,
     payload: answers
 })
-
-
 
 export const createAnswer = (answer,questionId) => (
     {
@@ -31,6 +31,18 @@ export const deleteAnswer = (id) => ({
     type: DELETE_ANSWER,
     payload: id
 });
+
+
+export const createVote = (answerId) => ({
+    type: CREATE_VOTE,
+    payload: answerId
+})
+
+export const deleteVote = (voteId) => ({
+    type: DELETE_VOTE,
+    payload: voteId
+})
+
 
 /******** Thunks ********/
 
@@ -104,6 +116,27 @@ export const fetchDeleteAnswer =  () => async (dispatch) => {
     return response;
 }
 
+
+export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => {
+    let response;
+    response = await fetch(`/api/answers/${answerId}/votes`,
+    {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(voteDirection)
+      }
+    );
+
+    if(response.ok){
+        const answer = await response.json();
+        dispatch(createVote(voteDirection));
+    };
+
+    return response;
+}
+
 /******** Reducer ********/
 const initialState = {};
 
@@ -122,6 +155,9 @@ const answersReducer = (state = initialState, action) => {
             return newState;
         case DELETE_ANSWER:
             delete newState[action.payload];
+            return newState;
+        case CREATE_VOTE:
+            newState = action.payload
             return newState;
         default:
             return newState;
