@@ -8,7 +8,7 @@ import LogoutButton from '../auth/LogoutButton';
 import logo from '../../assets/logo-stackoverflow.png';
 import { useHistory } from 'react-router-dom';
 import './NavBar.css';
-import DemoLoginModal from '../auth/DemoLoginModal';
+import DemoLogin from '../auth/DemoLogin';
 
 const NavBar = () => {
 
@@ -33,7 +33,7 @@ const NavBar = () => {
 
         {!isLoggedIn && 
             <li>
-              <DemoLoginModal />
+              <DemoLogin />
             </li>
           }
           {!isLoggedIn && 
