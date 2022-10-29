@@ -7,6 +7,7 @@ import CommentList from '../../Comments/CommentList'
 import AnswerEditForm from '../AnswerEditForm';
 import Votes from '../../Votes';
 import './Answer.css'
+import AnswerDelete from '../AnswerDelete.js';
 
 function Answer({answer,refreshQuestion}) {
     const [showEditModal, setShowEditModal] = useState(false);
@@ -18,41 +19,65 @@ function Answer({answer,refreshQuestion}) {
     const dispatch = useDispatch();
     
 
-    const handleDelete = async (e) => {
-      e.preventDefault();     
-      const choice = window.confirm("Are you sure you want to delete this answer?");
-      if (!choice) return
+    // const handleDelete = async (e) => {
+    //   e.preventDefault();     
+    //   const choice = window.confirm("Are you sure you want to delete this answer?");
+    //   if (!choice) return
       
-      return dispatch(fetchDeleteAnswer(answer?.id))
-      .then( refreshQuestion());
-    }
+    //   return dispatch(fetchDeleteAnswer(answer?.id))
+    //   .then( refreshQuestion());
+    // }
 
     return (
       <div className='answer-container'>
-
-        <Votes answer={answer} refreshQuestion={refreshQuestion}/>
+        <Votes answer={answer} refreshQuestion={refreshQuestion} />
         <p>{answer?.body}</p>
 
         {answer?.Comments && (
-          <CommentList commentList={answer.Comments} refreshQuestion={refreshQuestion}></CommentList>
+          <CommentList
+            commentList={answer.Comments}
+            refreshQuestion={refreshQuestion}
+          ></CommentList>
         )}
         <div className='answer-actions-container'>
-          {isOwner && <button onClick={() => setShowEditModal(true)}>Edit Answer</button>}
+          {isOwner && (
+            <button onClick={() => setShowEditModal(true)}>Edit Answer</button>
+          )}
           {showEditModal && (
             <Modal onClose={() => setShowEditModal(false)}>
-              <AnswerEditForm setShowEditModal={setShowEditModal} answer={answer} refreshQuestion={refreshQuestion} />
+              <AnswerEditForm
+                setShowEditModal={setShowEditModal}
+                answer={answer}
+                refreshQuestion={refreshQuestion}
+              />
             </Modal>
           )}
-          {isOwner && <button onClick={handleDelete} >Delete Answer</button>}
+          {isOwner && (
+            <button onClick={() => setDeleteAnswerModal(true)}>
+              Delete Answer
+            </button>
+          )}
+          {deleteAnswerModal && (
+            <Modal onClose={() => setDeleteAnswerModal(false)}>
+              <AnswerDelete
+                answerId={answer?.id}
+                setDeleteAnswerModal={setDeleteAnswerModal}
+                refreshQuestion={refreshQuestion}
+              />
+            </Modal>
+          )}
         </div>
         <div>
           <button onClick={() => setCommentModal(true)}>Post Comment</button>
-            {commentModal && (
-              <Modal onClose={() => setCommentModal(false)}>
-                <CommentCreateForm setCommentModal={setCommentModal} answerId={answer?.id} refreshQuestion={refreshQuestion} />
-               
-              </Modal>
-            )}
+          {commentModal && (
+            <Modal onClose={() => setCommentModal(false)}>
+              <CommentCreateForm
+                setCommentModal={setCommentModal}
+                answerId={answer?.id}
+                refreshQuestion={refreshQuestion}
+              />
+            </Modal>
+          )}
         </div>
       </div>
     );
