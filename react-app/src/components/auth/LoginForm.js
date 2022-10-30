@@ -31,15 +31,20 @@ const LoginForm = ({ setShowModal }) => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className='modal-container' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>
+            {error}
+          </div>
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
+        <label className='modal-input-title-label' htmlFor='email'>
+          Email
+        </label>
         <input
+          className='modal-input-title'
           name='email'
           type='text'
           placeholder='Email'
@@ -48,15 +53,20 @@ const LoginForm = ({ setShowModal }) => {
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label className='modal-input-title-label' htmlFor='password'>
+          Password
+        </label>
         <input
+          className='modal-input-title'
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit' className='login-btn'>Login</button>
+        <button type='submit' className='login-btn modal-btn modal-submit-btn'>
+          Login
+        </button>
       </div>
     </form>
   );

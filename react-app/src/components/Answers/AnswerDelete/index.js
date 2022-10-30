@@ -20,11 +20,13 @@ function AnswerDelete({ setDeleteAnswerModal, refreshQuestion, answerId }) {
       });
   };
   return (
-    <div>
-      <ul>{errors && errors.map((error) => <li key={error}>{error}</li>)}</ul>
-      <p>Are you sure you want to delete this answer?</p>
-      <button onClick={() => onDelete()}>Delete</button>
-      <button onClick={() => setDeleteAnswerModal(false)}>Cancel</button>
+    <div className='modal-container'>
+      <ul>{errors && errors.map((error) => <li className='errors' key={error}>{error}</li>)}</ul>
+      <p className='modal-form-title'>Are you sure you want to delete this answer?</p>
+      <div>
+        <button className='modal-btn modal-submit-btn' onClick={() => onDelete()}>Delete</button>
+        <button className='modal-btn modal-cancel-btn' onClick={() => setDeleteAnswerModal(false)}>Cancel</button>
+      </div>
     </div>
   );
 }

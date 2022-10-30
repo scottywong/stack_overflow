@@ -20,15 +20,17 @@ function QuestionDelete({ setShowDeleteModal, questionId, refreshQuestion }) {
     };
 
     return (
-        <div>
+        <div className='modal-container'>
             <ul>
                 {errors && errors.map(error => 
-                    <li key={error}>{error}</li>
+                    <li className='errors' key={error}>{error}</li>
                 )}
             </ul>
-            <p>Are you sure you want to delete this question?</p>
-            <button onClick={() => onDelete()}>Delete</button>
-            <button onClick={() => setShowDeleteModal(false)}>Cancel</button>
+            <p className='modal-form-title'>Are you sure you want to delete this question?</p>
+            <div>
+                <button className='modal-btn modal-submit-btn' onClick={() => onDelete()}>Delete</button>
+                <button className='modal-btn modal-cancel-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
+            </div>
         </div>
     );
 }

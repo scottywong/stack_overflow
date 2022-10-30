@@ -43,15 +43,18 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='modal-container' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>
+            {error}
+          </div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label className='modal-input-title-label'>User Name</label>
         <input
+          className='modal-input-title'
           type='text'
           name='username'
           onChange={updateUsername}
@@ -59,8 +62,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label className='modal-input-title-label'>Email</label>
         <input
+          className='modal-input-title'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -68,8 +72,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label className='modal-input-title-label'>Password</label>
         <input
+          className='modal-input-title'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -77,8 +82,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label className='modal-input-title-label'>Repeat Password</label>
         <input
+          className='modal-input-title'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -86,7 +92,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='modal-btn modal-submit-btn' type='submit'>Sign Up</button>
     </form>
   );
 };
