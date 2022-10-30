@@ -1,0 +1,26 @@
+
+.votes-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vote-caret-container:hover{
+    background-color: rgb(170, 165, 165);
+    cursor: var(--vote-caret-hover-cursor, pointer);
+
+}
+
+.vote-caret-container{
+    width:40px;
+    background-color: white;
+    color:#babfc4;
+    padding: 0.8em;
+    border: none;
+    height: 40px;
+    min-width: 80px;
+}
+
+.down-caret{
+    margin-bottom: 10px;
+}

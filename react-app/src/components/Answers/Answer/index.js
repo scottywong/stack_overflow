@@ -15,20 +15,13 @@ function Answer({answer,refreshQuestion}) {
     const [commentModal, setCommentModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
     const isOwner = sessionUser.id === answer?.userId;
-
-    const dispatch = useDispatch();
     
     return (
       <div className='answer-container'>
-        <Votes answer={answer} refreshQuestion={refreshQuestion} />
-        <p>{answer?.body}</p>
-
-        {answer?.Comments && (
-          <CommentList
-            commentList={answer.Comments}
-            refreshQuestion={refreshQuestion}
-          ></CommentList>
-        )}
+        <div className='answer-detail'>
+          <Votes answer={answer} refreshQuestion={refreshQuestion} />
+          <p>{answer?.body}</p>
+        </div>
         <div className='answer-actions-container'>
           {isOwner && (
             <button onClick={() => setShowEditModal(true)}>Edit Answer</button>
@@ -55,6 +48,15 @@ function Answer({answer,refreshQuestion}) {
                 refreshQuestion={refreshQuestion}
               />
             </Modal>
+          )}
+        </div>
+
+       <div className='answer-commentlist'>
+          {answer?.Comments && (
+            <CommentList
+              commentList={answer.Comments}
+              refreshQuestion={refreshQuestion}
+            ></CommentList>
           )}
         </div>
         <div>

@@ -8,7 +8,7 @@ import LogoutButton from '../auth/LogoutButton';
 import logo from '../../assets/logo-stackoverflow.png';
 import { useHistory } from 'react-router-dom';
 import './NavBar.css';
-import DemoLoginModal from '../auth/DemoLoginModal';
+import DemoLogin from '../auth/DemoLogin';
 
 const NavBar = () => {
 
@@ -23,7 +23,6 @@ const NavBar = () => {
   return (
     <>    
     <div className='navBar-top'/>
-  
     <div className='navBar-container'>
       <a href="/home" className='logo'>
           <img className='logo' src={logo}/>
@@ -33,7 +32,7 @@ const NavBar = () => {
 
         {!isLoggedIn && 
             <li>
-              <DemoLoginModal />
+              <DemoLogin />
             </li>
           }
           {!isLoggedIn && 
@@ -50,12 +49,13 @@ const NavBar = () => {
             <NavLink to='/users' exact={true} activeClassName='active'>
               Users
             </NavLink>
+
           </li>
           <li>
-            <a href='/profile' exact={true} activeClassName='active'>
-              <i className="fa-solid fa-user">
+            <NavLink to='/profile' exact={true} activeClassName='active'>
+              <i className="fa-solid fa-user fa-xl">
               </i>
-            </a>
+            </NavLink>
           </li>
           {isLoggedIn && 
               <li>
