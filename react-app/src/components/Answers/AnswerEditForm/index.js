@@ -11,7 +11,7 @@ function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
     const history = useHistory();
     const {questionId} = useParams();
 
-    const [body,setBody] = useState(answer.body);
+    const [body,setBody] = useState(answer?.body);
     const [errors,setErrors] = useState([]);
 
     const onSubmit = async(e) => {

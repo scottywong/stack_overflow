@@ -5,25 +5,22 @@ import { fetchEditQuestions, fetchQuestion } from '../../../store/questions';
 import './QuestionEditForm.css';
 
 function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
-  // const { questionId } = useParams();
-  // const parsedId = parseInt(questionId, 10);
+  
   const dispatch = useDispatch();
-  const history = useHistory();
-  // const question = useSelector(state => state.questions);
 
-  const [title, setTitle] = useState(question.title);
-  const [body, setBody] = useState(question.body);
+  const [title, setTitle] = useState(question?.title);
+  const [body, setBody] = useState(question?.body);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const payload = {
+      id: question?.id,
       title,
       body
     }
 
-    const editedQuestion = dispatch(fetchEditQuestions(payload, question?.id))
+    const editedQuestion = dispatch(fetchEditQuestions(payload))
       .then(refreshQuestion())
       .then(refreshQuestion())
       .then(() => {
