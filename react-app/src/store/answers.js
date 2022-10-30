@@ -120,19 +120,33 @@ export const fetchDeleteAnswer =  (answerId) => async (dispatch) => {
 
 export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => {
     let response;
+    console.log(JSON.stringify({voteDirection}));
     response = await fetch(`/api/answers/${answerId}/votes`,
     {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(voteDirection)
+        body: JSON.stringify({ voteDirection})
       }
     );
 
     if(response.ok){
         const answer = await response.json();
         dispatch(createVote(voteDirection));
+    };
+
+    return response;
+}
+
+
+export const fetchDeleteVote =  (voteId) => async (dispatch) => {
+    let response;
+    response = await fetch(`/api/votes/${voteId}`,{method: 'DELETE'});
+
+    if(response.ok){
+        const answer = await response.json();
+        dispatch(deleteVote(voteId));
     };
 
     return response;
@@ -159,6 +173,9 @@ const answersReducer = (state = initialState, action) => {
             return newState;
         case CREATE_VOTE:
             newState = action.payload
+            return newState;
+        case DELETE_VOTE:
+            newState = action.payload;
             return newState;
         default:
             return newState;

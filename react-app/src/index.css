@@ -1,7 +1,6 @@
 /* TODO Add site wide styles */
-
 button{
-
+    
     background-color: #0a95ff;
     color:white;
     padding: 0.8em;
@@ -10,6 +9,19 @@ button{
     border-radius: 2px;
     height: 40px;
 
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.link{
+    text-decoration: none;
+    color: #838c95;
+}
+
+.link:hover{
+    color: #0a95ff;
 }
 
 html, body, #root {

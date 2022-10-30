@@ -22,7 +22,7 @@ function CommentListItem({comment,refreshQuestion}) {
     return (
         <div className="cli-container">
             <p>{comment?.body}</p>
-            <button onClick={handleDelete}>Delete Comment</button>
+            <a href='#' className="link" onClick={handleDelete}>Delete Comment</a>
         </div>
     )
 }
