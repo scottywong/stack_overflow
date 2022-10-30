@@ -19,9 +19,9 @@ function QuestionCreateForm({ setShowModal }) {
       title, 
       body
     }
-
+    
     const createdQuestion = await dispatch(fetchCreateQuestions(payload))
-      .then(() => {
+    .then(() => {
         setShowModal(false)
       })
       .then(() => history.push('/profile'))

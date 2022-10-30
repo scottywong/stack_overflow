@@ -42,7 +42,7 @@ function QuestionList() {
         </ul>
           <div className='ql-list'>
             {questions.map((question) => (
-              <div key={question.id}>
+              <div key={question?.id}>
                 <div>
                   <QuestionListItem question={question} />
                 </div>

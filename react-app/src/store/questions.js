@@ -105,7 +105,7 @@ export const fetchCreateQuestions = (question) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(question)
     });
-
+    
     if (res.ok){
         const question = await res.json();
         dispatch(createQuestions(question));
