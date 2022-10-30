@@ -11,7 +11,18 @@ button{
 
 }
 
+button:hover{
+    cursor: pointer;
+}
 
+.link{
+    text-decoration: none;
+    color: #838c95;
+}
+
+.link:hover{
+    color: #0a95ff;
+}
 
 html, body, #root {
     height: 100%;

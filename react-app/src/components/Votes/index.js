@@ -15,8 +15,7 @@ const Votes = ({answer, refreshQuestion}) => {
         return dispatch(fetchDeleteVote(answer?.Votes?.voteId))
         .then(refreshQuestion())
         .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
-        .then(
-            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+        .then(document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
                 e => e.style.setProperty('--vote-caret-hover-cursor', 'pointer')
             )
         )
@@ -27,8 +26,7 @@ const Votes = ({answer, refreshQuestion}) => {
         return dispatch(fetchCreateVote(answer?.id,"Up"))
         .then(refreshQuestion())
         .then(refreshQuestion())
-        .then(
-            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+        .then(document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
                 e => e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed')
             )
         ) 
@@ -39,14 +37,9 @@ const Votes = ({answer, refreshQuestion}) => {
         return dispatch(fetchCreateVote(answer?.id,"Down"))
         .then(refreshQuestion())
         .then(refreshQuestion())
-        .then(
-
-            document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
+        .then(document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
                 e => e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed')
             )
-
-            // console.log('query selector: ',  document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ))
-
 
         )
     }
@@ -62,7 +55,7 @@ const Votes = ({answer, refreshQuestion}) => {
                 <i className='fa-solid fa-caret-down fa-2xl'></i>
             </button>
             {answer?.Votes?.hasVoted && 
-            <a href='#' onClick={handleClearVote} className="clear-Vote">Clear Vote</a>
+            <a href='#'  onClick={handleClearVote} className="link">Clear Vote</a>
             }
 
         </div>

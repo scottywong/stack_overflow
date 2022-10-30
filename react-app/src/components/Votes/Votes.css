@@ -7,18 +7,18 @@
 }
 .vote-caret-container:hover{
     background-color: rgb(170, 165, 165);
-    cursor: var(--vote-caret-hover-cursor)
-    /* cursor: pointer; */
+    cursor: var(--vote-caret-hover-cursor, pointer);
+
 }
 
 .vote-caret-container{
     width:40px;
-
     background-color: white;
-    color:rgb(0, 0, 0);
+    color:#babfc4;
     padding: 0.8em;
     border: none;
     height: 40px;
+    min-width: 80px;
 }
 
 .down-caret{
