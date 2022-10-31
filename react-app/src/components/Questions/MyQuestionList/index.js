@@ -19,7 +19,7 @@ function MyQuestionList() {
 
   return (
     <div className='my-ql-container'>
-      <h1>My Questions</h1>
+      <h2>My Questions</h2>
       {questions && questions.map(question => (
           <QuestionListItem question={question}></QuestionListItem>
       ))}

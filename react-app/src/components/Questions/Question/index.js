@@ -33,7 +33,7 @@ function Question({ question, refreshQuestion }) {
             <QuestionDelete setShowDeleteModal={setShowDeleteModal} questionId={question?.id} refreshQuestion={refreshQuestion}/>
           </Modal>
         )}
-        <button onClick={() => setShowAnswerModal(true)}>Post Answer</button>
+        {!isOwner && <button onClick={() => setShowAnswerModal(true)}>Post Answer</button>}
         {showAnswerModal && (
           <Modal onClose={() => setShowAnswerModal(false)}>
             <AnswerCreateForm setShowAnswerModal={setShowAnswerModal} refreshQuestion={refreshQuestion} />
