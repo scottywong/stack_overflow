@@ -1,6 +1,11 @@
 import "./LandingPage.css";
+import LoginFormModal from "../auth/LoginFormModal";
+import { Modal } from "../../context/Modal";
+import React, { useState } from "react";
 
 const LandingPage = () => {
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
   return (
     <div className="landingPage-container">
       <div className="gray-container">
@@ -12,7 +17,17 @@ const LandingPage = () => {
                 Find the best answer to your technical question, help others
                 answer theirs
               </h2>
-              <button className="orange-button">Join the community</button>
+              <button
+                className="orange-button"
+                onClick={() => setShowLoginModal(true)}
+              >
+                Join the community
+              </button>
+              {showLoginModal && (
+                <Modal onClose={() => setShowLoginModal(false)}>
+                  <LoginFormModal setShowLoginModal={setShowLoginModal} />
+                </Modal>
+              )}
             </div>
           </div>
           <div className="blue-box">
@@ -21,7 +36,17 @@ const LandingPage = () => {
               <h2 className="blue-box-words">
                 Want a secure, private space for your technical knowledge?
               </h2>
-              <button className="blue-button">Discover Teams</button>
+              <button
+                className="blue-button"
+                onClick={() => setShowLoginModal(true)}
+              >
+                Discover Teams
+              </button>
+              {showLoginModal && (
+                <Modal onClose={() => setShowLoginModal(false)}>
+                  <LoginFormModal setShowLoginModal={setShowLoginModal} />
+                </Modal>
+              )}
             </div>
           </div>
         </div>
