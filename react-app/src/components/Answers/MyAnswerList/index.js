@@ -16,11 +16,11 @@ function MyAnswerList() {
 
     return (
         <div className="myAnswerList-container">
-            
-        { myAnswers && 
-        myAnswers.map(answer => {
-            return <AnswerListItem answer={answer}> </AnswerListItem>
-        })} 
+            <h2>My Answers</h2>
+            { myAnswers && 
+                myAnswers.map(answer => {
+                return <AnswerListItem answer={answer}> </AnswerListItem>
+            })} 
         </div>
     )
 
