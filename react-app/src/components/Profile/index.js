@@ -7,7 +7,7 @@ import './Profile.css';
 const Profile = () => {
     
     return (
-        <div className='profile-Container'>
+        <div className='profile-container'>
             
             <MyQuestionList/>
             <MyAnswerList/>

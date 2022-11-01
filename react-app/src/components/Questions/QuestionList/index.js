@@ -23,7 +23,7 @@ function QuestionList() {
 
     return (
       <div className='ql-container'>
-        <div className='question-nav'>
+        <div className='ql-header'>
               <div className='question-nav-header'><h1>All Questions</h1></div>
               <button onClick={() => setShowModal(true)}>Ask Question</button>
             {showModal && (

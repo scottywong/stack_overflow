@@ -1,0 +1,22 @@
+.ali-link{
+
+    color:#0074cc;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.ali-link:hover{
+
+    color:#0a95ff;
+    text-decoration: none;
+}
+
+.ali-container{
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 700px;
+    border-bottom: 1px solid #e3e6e8;
+
+}
