@@ -14,10 +14,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 1000px;
+    height: 770px;
     background-color: rgb(61, 58, 58);
     border-radius: 7px;
+    margin-bottom: 2em;
 }
 
 .orange-blue-container {
