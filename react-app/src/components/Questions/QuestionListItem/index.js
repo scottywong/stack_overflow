@@ -5,7 +5,7 @@ import './QuestionListItem.css';
 function QuestionListItem({ question }) {
 
   let questionTitle;
-  question?.title && question?.title.length >= 50 ? questionTitle = question.title.substring(0,50) + ' ...' : questionTitle = question.title
+  question?.title && question?.title?.length >= 50 ? questionTitle = question?.title?.substring(0,50) + ' ...' : questionTitle = question?.title
   return (
     <div className='qli-container'>
       <NavLink className="qli-link" to={`/questions/${question.id}`}>
