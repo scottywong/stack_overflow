@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from .comment import Comment
 from .vote import Vote
 from datetime import datetime
+from .user import User
 
 class Answer(db.Model):
     __tablename__ = 'answers'
@@ -19,11 +20,15 @@ class Answer(db.Model):
     comments = db.relationship('Comment', back_populates='answer',cascade='all, delete-orphan')
     votes = db.relationship('Vote', back_populates='answer', cascade='all, delete-orphan')
 
+    def get_user(self):
+        user = User.query.filter(User.id == self.userId).first()
+        return user.username
 
     def to_dict(self):
         return {
             'id': self.id,
             'userId': self.userId,
+            'username': self.get_user(),
             'questionId': self.questionId,
             'body': self.body,
             'created_on': self.created_on,
@@ -48,22 +53,16 @@ class Answer(db.Model):
         print(len(hasVoted))
         if len(hasVoted) == 0 :
             voted = False
-        vote_id = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).first()
-        if vote_id is not None:
-            vid = vote_id.id
-        if vote_id is None:
-            vid = None        
         return { 
             "total" : count,
-            "hasVoted" : voted,
-            "voteId" : vid
+            "hasVoted" : voted
         }
-  
 
     def to_dict2(self):
         return {
             'id': self.id,
             'userId': self.userId,
+            'username': self.get_user(),
             'questionId': self.questionId,
             'body': self.body,
             'created_on': self.created_on,
