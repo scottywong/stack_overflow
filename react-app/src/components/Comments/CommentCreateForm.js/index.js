@@ -16,22 +16,39 @@ function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
         };
 
         return dispatch(fetchCreateComment(answerId, payload))
-        .then(refreshQuestion())
-        .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
-        .then(setCommentModal(false));
+          .then(refreshQuestion())
+          .then(refreshQuestion()) //double refresh to ensure changes are reflected on Question
+          .then(setCommentModal(false))
+          .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+          });
     }
   return (
     <form className='modal-container' onSubmit={onSubmit}>
-      <label className='modal-input-body-label'>Body</label>
+      <h2 className='modal-form-title'>Post Your Comment</h2>
       <input
         className='modal-input-body'
         type='text'
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        placeholder='Write your comment here'
       />
+      <ul className='errorMsg'>
+        {errors.map((error, idx) => (
+          <li className='errors' key={idx}>
+            {error}
+          </li>
+        ))}
+      </ul>
       <div>
         <button className='modal-btn modal-submit-btn'>Submit</button>
-        <button className='modal-btn modal-cancel-btn' onClick={() => setCommentModal(false)}>Cancel</button>
+        <button
+          className='modal-btn modal-cancel-btn'
+          onClick={() => setCommentModal(false)}
+        >
+          Cancel
+        </button>
       </div>
     </form>
   );

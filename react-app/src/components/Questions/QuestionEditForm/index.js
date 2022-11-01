@@ -37,36 +37,34 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
   return (
     <form className='modal-container' onSubmit={handleSubmit}>
       <h2 className='modal-form-title'>Edit your question</h2>
+
+      <input
+        className='modal-input-title'
+        type='text'
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        name='title'
+      />
+      <textarea
+        className='modal-input-body'
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        name='body'
+      />
       <ul>
-        {errors.length > 0 && errors.map(error => (
-          <li className='errors' key={error}>{error}</li>
-        ))}
+        {errors.length > 0 &&
+          errors.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
       </ul>
-      <label className='modal-input-title-label'>
-        Title
-        <input 
-          className='modal-input-title'
-          type='text'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          name='title'
-        />
-      </label>
-      <label className='modal-input-body-label'>
-        Body
-        <textarea 
-          className='modal-input-body'
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          name='body'
-        />
-      </label>
       <div>
         <button className='modal-btn modal-submit-btn'>Submit</button>
         <button className='modal-btn modal-cancel-btn'>Cancel</button>
       </div>
     </form>
-  )
+  );
 }
 
 export default QuestionEditForm;

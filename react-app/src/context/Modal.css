@@ -50,13 +50,11 @@ input {
     font-size: 30px;
 }
 
-.modal-form-container {
-
-}
-
-.modal-input-title-label, .modal-input-body-label {
-color: white;
-font-family: sans-serif;
+.modal-input-title-label {
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  margin-left: 15px;
 }
 
 .modal-input-title {
