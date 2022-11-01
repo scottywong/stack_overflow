@@ -2,6 +2,7 @@ from .db import db
 from .answer import Answer
 from .comment import Comment
 from .vote import Vote
+from .user import User
 from datetime import datetime
 
 class Question(db.Model):
@@ -18,11 +19,15 @@ class Question(db.Model):
     user = db.relationship('User', back_populates='questions')
     answers = db.relationship('Answer', back_populates='question',cascade='all, delete-orphan')
 
+    def get_user(self):
+        user = User.query.filter(User.id == self.userId).first()
+        return user.username
 
     def to_dict(self):
         return {
             'id': self.id,
             'userId': self.userId,
+            'username': self.get_user(),
             'title': self.title,
             'body': self.body,
             'created_on': self.created_on,
@@ -33,6 +38,7 @@ class Question(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
+            'username': self.get_user(),
             'title': self.title,
             'body': self.body,
             'created_on': self.created_on,
