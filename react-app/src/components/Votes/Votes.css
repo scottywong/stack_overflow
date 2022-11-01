@@ -18,7 +18,8 @@
     padding: 0.8em;
     border: none;
     height: 40px;
-    min-width: 80px;
+    min-width: 100px;
+    box-shadow: none !important;
 }
 
 .down-caret{

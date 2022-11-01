@@ -1,12 +1,26 @@
 .cli-container{
 
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         width: auto;
         padding-bottom: 10px;
-        padding-left: 80px;
+        justify-content: space-between;
         border-bottom: 1px solid #e3e6e8;
         margin-bottom: 10px;
     
+}
+
+.cli-actions-container{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 100px;
+        
+}
+
+.cli-detail{
+        padding-left: 100px;
+        
 }

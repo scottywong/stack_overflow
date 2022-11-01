@@ -8,15 +8,28 @@ button{
     border: none;
     border-radius: 2px;
     height: 40px;
+    transition: 0.8s all;
 
 }
 
+button:active {
+    transform: scale(0.95);
+    box-shadow: 10px 5px 5px #838c95;
+}
 button:hover{
     cursor: pointer;
-    box-shadow: 10px 5px 5px #838c95;
 
 }
+.link-button{
 
+    background-color: transparent;
+    
+}
+
+.link-button:active{
+
+    box-shadow: none;
+}
 .link{
     text-decoration: none;
     color: #838c95;

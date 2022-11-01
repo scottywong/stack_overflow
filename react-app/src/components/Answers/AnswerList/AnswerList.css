@@ -1,12 +1,16 @@
-.answerList-container{
+.a-list-container{
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: auto;
+    align-items: left;
+    margin: auto;
+    min-width: 300px;
+    max-width: 700px;
 
 }
 
-.answerList-size{
+.a-list-detail{
+
+    justify-content: left;
 
 }

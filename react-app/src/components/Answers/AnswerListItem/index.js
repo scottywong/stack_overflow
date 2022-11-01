@@ -5,12 +5,15 @@ import './AnswerListItem.css';
 
 function AnswerListItem({answer}) {
 
-    const answerDate = new Date(Date.parse(answer?.created_on));
+    let answerBody;
+    answer?.body && answer?.body.length >= 50 ? answerBody = answer.body.substring(0,50) + ' ...' : answerBody = answer.body
     return (
         <div className='ali-container'>
         <NavLink className="ali-link" to={`/questions/${answer?.questionId}`}>
-            <h3 className='ali-title'>{answer?.body}</h3>
+            <h3 className='ali-title'>{answerBody}</h3>
         </NavLink>
+
+        <p>Answered by: {answer?.username}</p>
   
         </div>
     ); 
