@@ -44,12 +44,14 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         name='title'
+        required
       />
       <textarea
         className='modal-input-body'
         value={body}
         onChange={(e) => setBody(e.target.value)}
         name='body'
+        required
       />
       <ul>
         {errors.length > 0 &&
