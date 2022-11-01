@@ -30,6 +30,7 @@ Require Authentication: TRUE
         {
             "id": 1,
             "userId": 1,
+            "username": "demo",
             "title": "Sample Title",
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -38,6 +39,7 @@ Require Authentication: TRUE
         {
             "id": 2,
             "userId": 1,
+            "username": "demo",
             "title": "Sample Title",
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -67,6 +69,7 @@ Require Authentication: TRUE
         {
             "id": 1,
             "userId": 1,
+            "username": "demo",
             "questionId":1,
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -75,6 +78,7 @@ Require Authentication: TRUE
         {
             "id": 2,
             "userId": 1,
+            "username": "demo",
             "questionId":1,
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -103,6 +107,7 @@ Status Code: 200
         {
             "id": 1,
             "userId": 1,
+            "username": "demo",
             "title": "Sample Title",
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -111,6 +116,7 @@ Status Code: 200
         {
             "id": 2,
             "userId": 2,
+            "username": "demo",
             "title": "Sample Title",
             "body": "Sample Body",
             "created_on":  "2022-12-12", 
@@ -141,6 +147,7 @@ Status Code: 201
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "title": "Sample Title",
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
@@ -163,6 +170,7 @@ Status Code: 200
     {
         "id": 1,
         "userId": 1,
+        "username": "demo",
         "title": "Sample Title",
         "body": "Sample Body",
         "created_on":  "2022-12-12", 
@@ -172,6 +180,7 @@ Status Code: 200
             {
                 "id": 1,
                 "userId": 1,
+                "username": "demo",
                 "questionId":1,
                 "body": "Sample Body",
                 "created_on":  "2022-12-12", 
@@ -181,12 +190,14 @@ Status Code: 200
                     {
                         "id": 1,
                         "userId": 1,
+                        "username": "demo",
                         "answerId": 1,
                         "body": "Sample Body"
                     },
                     {
                         "id": 2,
                         "userId": "1",
+                        "username": "demo",
                         "answerId": "1",
                         "body": "Sample Body"
                     }
@@ -227,6 +238,7 @@ Require Authentication: TRUE
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "title": "Sample Title",
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
@@ -274,6 +286,7 @@ Status Code: 201
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "questionId": 1,
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
@@ -302,6 +315,7 @@ Status Code: 200
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "questionId": 1,
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
@@ -350,6 +364,7 @@ Status Code: 200
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "answerId": 1,
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
@@ -378,6 +393,7 @@ Status Code: 200
 {
     "id": 2,
     "userId": 2,
+    "username": "demo",
     "answerId": 1,
     "body": "Sample Body",
     "created_on":  "2022-12-12", 
