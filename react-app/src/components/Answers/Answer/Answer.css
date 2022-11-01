@@ -15,7 +15,6 @@
 
     display: flex;
     flex-direction: row;
-    align-items: center;
  
 }
 
@@ -33,7 +32,6 @@
 .answer-bottom{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
     padding-bottom: 10px;
 
 }
