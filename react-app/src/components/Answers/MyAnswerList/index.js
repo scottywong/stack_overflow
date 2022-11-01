@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AnswerListItem from '../AnswerListItem';
 import { fetchGetUserAnswers } from '../../../store/answers';
-// import './MyAnswerList.css';
+import './MyAnswerList.css';
 
 function MyAnswerList() {
 
@@ -15,8 +15,10 @@ function MyAnswerList() {
     },[dispatch]);
 
     return (
-        <div className="myAnswerList-container">
-            <h2>My Answers</h2>
+        <div className="my-al-container">
+            <div className="my-al-header">
+                <h2>My Answers</h2>
+            </div>
             { myAnswers && 
                 myAnswers.map(answer => {
                 return <AnswerListItem answer={answer}> </AnswerListItem>

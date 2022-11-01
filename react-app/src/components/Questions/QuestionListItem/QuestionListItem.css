@@ -1,13 +1,15 @@
-/* .qli-title{
-
-    
-    font-size:  ;
-} */
-
 .qli-link{
 
-    color:#0a95ff;
+    color:#0074cc;
+    text-decoration: none;
 }
+
+.qli-link:hover{
+
+    color:#0a95ff;
+    text-decoration: none;
+}
+
 
 .qli-container{
 
@@ -15,5 +17,6 @@
     flex-direction: row;
     justify-content: space-between;
     width: 400px;
+    border-bottom: 1px solid #e3e6e8;
 
 }
