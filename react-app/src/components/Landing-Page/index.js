@@ -1,5 +1,4 @@
 import "./LandingPage.css";
-import LoginFormModal from "../auth/LoginFormModal";
 import LoginForm from "../auth/LoginForm";
 import { Modal } from "../../context/Modal";
 import React, { useState } from "react";
