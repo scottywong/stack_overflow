@@ -27,25 +27,32 @@ function AnswerCreateForm({ refreshQuestion,setShowAnswerModal }) {
   };
 
   return (
-    <div className="modal-container">
-      <h2 className="modal-form-title">Post Your Answer</h2>
-      <ul className="errorMsg">
-        {errors.map((error, idx) => (
-          <li className='errors' key={idx}>{error}</li>
-        ))}
-      </ul>
+    <div className='modal-container'>
+      <h2 className='modal-form-title'>Post Your Answer</h2>
       <form onSubmit={onSubmit}>
         <input
-          className="modal-input-body"
-          type="text"
-          placeholder="Write answer here"
+          className='modal-input-body'
+          type='text'
+          placeholder='Write your answer here'
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required
         ></input>
+        <ul className='errorMsg'>
+          {errors.map((error, idx) => (
+            <li className='errors' key={idx}>
+              {error}
+            </li>
+          ))}
+        </ul>
         <div>
-          <button className="modal-btn modal-submit-btn">Submit</button>
-          <button className="modal-btn modal-cancel-btn" onClick={() => setShowAnswerModal(false)}>Cancel</button>
+          <button className='modal-btn modal-submit-btn'>Submit</button>
+          <button
+            className='modal-btn modal-cancel-btn'
+            onClick={() => setShowAnswerModal(false)}
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </div>
