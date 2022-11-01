@@ -15,13 +15,19 @@ function CommentListItem({comment,refreshQuestion}) {
 
     return (
         <div className="cli-container">
-            <p>{comment?.body}</p>
-            {isOwner && <button onClick={() => setShowDeleteModal(true)}>Delete Comment</button>}
+        <div className='cli-detail'>
+        <p>{comment?.body} - {comment?.username}</p>
+        </div>
+        <div className="cli-actions-container">
+            {isOwner && <button className='link link-button' onClick={() => setShowDeleteModal(true)}>Delete</button>}
             {showDeleteModal && (
                 <Modal onClose={() => setShowDeleteModal(false)}>
                     <CommentDelete commentId={comment?.id} setShowDeleteModal={setShowDeleteModal} refreshQuestion={refreshQuestion} />
                 </Modal>
             )}
+        </div>
+          
+
         </div>
     )
 }

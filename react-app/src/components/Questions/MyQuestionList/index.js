@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUserQuestions } from '../../../store/questions';
 import QuestionListItem from '../QuestionListItem';
+import './MyQuestionList.css';
 
 function MyQuestionList() {
   const dispatch = useDispatch()
@@ -19,7 +20,9 @@ function MyQuestionList() {
 
   return (
     <div className='my-ql-container'>
-      <h2>My Questions</h2>
+      <div className="my-ql-header">
+        <h2>My Questions</h2>
+      </div>
       {questions && questions.map(question => (
           <QuestionListItem question={question}></QuestionListItem>
       ))}

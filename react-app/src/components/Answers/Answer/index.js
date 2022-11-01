@@ -22,34 +22,39 @@ function Answer({answer,refreshQuestion}) {
           <Votes answer={answer} refreshQuestion={refreshQuestion} />
           <p>{answer?.body}</p>
         </div>
-        <div className='answer-actions-container'>
-          {isOwner && (
-            <button onClick={() => setShowEditModal(true)}>Edit Answer</button>
-          )}
-          {showEditModal && (
-            <Modal onClose={() => setShowEditModal(false)}>
-              <AnswerEditForm
-                setShowEditModal={setShowEditModal}
-                answer={answer}
-                refreshQuestion={refreshQuestion}
-              />
-            </Modal>
-          )}
-          {isOwner && (
-            <button onClick={() => setDeleteAnswerModal(true)}>
-              Delete Answer
-            </button>
-          )}
-          {deleteAnswerModal && (
-            <Modal onClose={() => setDeleteAnswerModal(false)}>
-              <AnswerDelete
-                answerId={answer?.id}
-                setDeleteAnswerModal={setDeleteAnswerModal}
-                refreshQuestion={refreshQuestion}
-              />
-            </Modal>
-          )}
+        <div className='answer-bottom'>
+          <div className='answer-actions-container'>
+            {isOwner && (
+              <button className="link link-button" onClick={() => setShowEditModal(true)}>Edit</button>
+            )}
+            {showEditModal && (
+              <Modal onClose={() => setShowEditModal(false)}>
+                <AnswerEditForm
+                  setShowEditModal={setShowEditModal}
+                  answer={answer}
+                  refreshQuestion={refreshQuestion}
+                />
+              </Modal>
+            )}
+            {isOwner && (
+              <button  className="link link-button" onClick={() => setDeleteAnswerModal(true)}>
+                Delete
+              </button>
+            )}
+            {deleteAnswerModal && (
+              <Modal onClose={() => setDeleteAnswerModal(false)}>
+                <AnswerDelete
+                  answerId={answer?.id}
+                  setDeleteAnswerModal={setDeleteAnswerModal}
+                  refreshQuestion={refreshQuestion}
+                />
+              </Modal>
+            )}
+          </div>
+          <div className='a-posted-by'>Answered by: {answer?.username}</div>
         </div>
+           
+     
 
        <div className='answer-commentlist'>
           {answer?.Comments && (
@@ -60,7 +65,7 @@ function Answer({answer,refreshQuestion}) {
           )}
         </div>
         <div>
-          <button onClick={() => setCommentModal(true)}>Post Comment</button>
+          <button className="link link-button" onClick={() => setCommentModal(true)}>Add a Comment</button>
           {commentModal && (
             <Modal onClose={() => setCommentModal(false)}>
               <CommentCreateForm
@@ -71,6 +76,8 @@ function Answer({answer,refreshQuestion}) {
             </Modal>
           )}
         </div>
+        
+ 
       </div>
     );
 

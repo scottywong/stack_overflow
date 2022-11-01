@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    min-height: 150px;
 }
 .vote-caret-container:hover{
     background-color: rgb(170, 165, 165);
@@ -18,7 +20,8 @@
     padding: 0.8em;
     border: none;
     height: 40px;
-    min-width: 80px;
+    min-width: 100px;
+    box-shadow: none !important;
 }
 
 .down-caret{
