@@ -33,27 +33,30 @@ function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
     }
 
     return (
-        <div className="modal-container">
-            <h2 className="modal-form-title">Edit Answer</h2>
-            <ul className="errorMsg">
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <form className="answerCreateForm" onSubmit={onSubmit}>
-            <label className="modal-input-body-label">
-            Body
-            </label>
-            <textarea
-                className="modal-input-body"
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-                required
-            >
-            </textarea>
-            <button className="modal-btn modal-submit-btn">Edit</button>
-            <button className="modal-btn modal-cancel-btn" onClick={() => setShowEditModal(false)}>Cancel</button>
-            </form>
-        </div>
-    )
+      <div className='modal-container'>
+        <h2 className='modal-form-title'>Edit Answer</h2>
+        <form className='answerCreateForm' onSubmit={onSubmit}>
+          <textarea
+            className='modal-input-body'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+          ></textarea>
+          <ul className='errorMsg'>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <button className='modal-btn modal-submit-btn'>Edit</button>
+          <button
+            className='modal-btn modal-cancel-btn'
+            onClick={() => setShowEditModal(false)}
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    );
 
 
 }

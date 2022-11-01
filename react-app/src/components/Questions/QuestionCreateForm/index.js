@@ -36,37 +36,40 @@ function QuestionCreateForm({ setShowModal }) {
   return (
     <form onSubmit={handleSubmit} className='modal-container'>
       <h2 className='modal-form-title'>Ask a question</h2>
-      <ul>
-        {validationErrors.map((error) => (
-          <li className='errors' key={error}>
-            {error}
-          </li>
-        ))}
-      </ul>
-      <label className='modal-input-title-label'>
-        Title
-        <input
-          className='modal-input-title'
-          type='text'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          name='title'
-          placeholder="Be specific ..."
-        />
-      </label>
-      <label className='modal-input-body-label'>
-        Body
-        <textarea
-          className='modal-input-body'
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          name='body'
-          placeholder='What are the details of your problem?'
-        />
-      </label>
+      <input
+        className='modal-input-title'
+        type='text'
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        name='title'
+        placeholder='Write your question here'
+      />
+      <textarea
+        className='modal-input-body'
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        name='body'
+        placeholder='What are the details of your problem?'
+      />
+      {validationErrors && (
+        <ul>
+          {validationErrors.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )}
       <div>
-        <button className='modal-btn modal-submit-btn' type='submit'>Submit your question</button>
-        <button className='modal-btn modal-cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+        <button className='modal-btn modal-submit-btn' type='submit'>
+          Submit your question
+        </button>
+        <button
+          className='modal-btn modal-cancel-btn'
+          onClick={() => setShowModal(false)}
+        >
+          Cancel
+        </button>
       </div>
     </form>
   );
