@@ -24,9 +24,16 @@ const NavBar = () => {
     <>    
     <div className='navBar-top'/>
     <div className='navBar-container'>
+    {!isLoggedIn &&
+      <a className='logo'>
+          <img className='logo' src={logo}/>
+      </a>
+    }
+    {isLoggedIn &&
       <a href="/home" className='logo'>
           <img className='logo' src={logo}/>
       </a>
+    }
       <nav className='navBar-ul-container'>
         <ul className='navBar-ul'>
 
@@ -45,18 +52,21 @@ const NavBar = () => {
                 <SignUpFormModal />
               </li>
             }
+          {isLoggedIn &&
           <li>
             <NavLink to='/users' exact={true} activeClassName='active'>
               Users
             </NavLink>
-
           </li>
+          }
+          {isLoggedIn &&
           <li>
             <NavLink to='/profile' exact={true} activeClassName='active'>
               <i className="fa-solid fa-user fa-xl">
               </i>
             </NavLink>
           </li>
+          }
           {isLoggedIn && 
               <li>
                 <LogoutButton />

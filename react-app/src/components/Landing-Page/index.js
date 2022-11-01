@@ -1,5 +1,6 @@
 import "./LandingPage.css";
 import LoginFormModal from "../auth/LoginFormModal";
+import LoginForm from "../auth/LoginForm";
 import { Modal } from "../../context/Modal";
 import React, { useState } from "react";
 
@@ -25,7 +26,7 @@ const LandingPage = () => {
               </button>
               {showLoginModal && (
                 <Modal onClose={() => setShowLoginModal(false)}>
-                  <LoginFormModal setShowLoginModal={setShowLoginModal} />
+                  <LoginForm setShowLoginModal={setShowLoginModal} />
                 </Modal>
               )}
             </div>
@@ -44,7 +45,7 @@ const LandingPage = () => {
               </button>
               {showLoginModal && (
                 <Modal onClose={() => setShowLoginModal(false)}>
-                  <LoginFormModal setShowLoginModal={setShowLoginModal} />
+                  <LoginForm setShowLoginModal={setShowLoginModal} />
                 </Modal>
               )}
             </div>
