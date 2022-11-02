@@ -20,7 +20,8 @@ function Question({ question, refreshQuestion }) {
     <div className='q-container'>
       <div className='q-detail'>
         <div className='q-title'>{question?.title}</div>
-        <p>{question?.body}</p>
+        <div className='q-body'>{question?.body}</div>
+
       </div>
       <div className='q-bottom'>
         <div className='q-actions-container'>
