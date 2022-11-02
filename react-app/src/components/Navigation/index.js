@@ -25,14 +25,14 @@ const NavBar = () => {
     <div className='navBar-top'/>
     <div className='navBar-container'>
     {!isLoggedIn &&
-      <a className='logo'>
+      <NavLink to="/" className='logo'>
           <img className='logo' src={logo}/>
-      </a>
+      </NavLink>
     }
     {isLoggedIn &&
-      <a href="/home" className='logo'>
+      <NavLink to="/home" className='logo'>
           <img className='logo' src={logo}/>
-      </a>
+      </NavLink>
     }
       <nav className='navBar-ul-container'>
         <ul className='navBar-ul'>
