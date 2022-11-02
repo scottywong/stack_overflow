@@ -21,10 +21,13 @@ function QuestionCreateForm({ setShowModal }) {
     }
     
     const createdQuestion = await dispatch(fetchCreateQuestions(payload))
-    .then(() => {
+    .then((res) => {
         setShowModal(false)
+        return res;
       })
-      .then(() => history.push('/profile'))
+      .then((res) => {
+       history.push(`/questions/${res.id}`);
+      })
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors);
@@ -43,6 +46,7 @@ function QuestionCreateForm({ setShowModal }) {
         onChange={(e) => setTitle(e.target.value)}
         name='title'
         placeholder='Write your question here'
+        required
       />
       <textarea
         className='modal-input-body'
@@ -50,6 +54,7 @@ function QuestionCreateForm({ setShowModal }) {
         onChange={(e) => setBody(e.target.value)}
         name='body'
         placeholder='What are the details of your problem?'
+        required
       />
       {validationErrors && (
         <ul>
@@ -62,7 +67,7 @@ function QuestionCreateForm({ setShowModal }) {
       )}
       <div>
         <button className='modal-btn modal-submit-btn' type='submit'>
-          Submit your question
+          Submit
         </button>
         <button
           className='modal-btn modal-cancel-btn'

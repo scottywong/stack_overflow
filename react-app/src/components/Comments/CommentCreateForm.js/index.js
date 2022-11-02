@@ -33,6 +33,7 @@ function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder='Write your comment here'
+        required
       />
       <ul className='errorMsg'>
         {errors.map((error, idx) => (
