@@ -27,7 +27,7 @@ function CommentCreateForm({ answerId,refreshQuestion, setCommentModal }) {
   return (
     <form className='modal-container' onSubmit={onSubmit}>
       <h2 className='modal-form-title'>Post Your Comment</h2>
-      <input
+      <textarea
         className='modal-input-body'
         type='text'
         value={body}

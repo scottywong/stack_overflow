@@ -30,14 +30,14 @@ function AnswerCreateForm({ refreshQuestion,setShowAnswerModal }) {
     <div className='modal-container'>
       <h2 className='modal-form-title'>Post Your Answer</h2>
       <form onSubmit={onSubmit}>
-        <input
+        <textarea
           className='modal-input-body'
           type='text'
           placeholder='Write your answer here'
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required
-        ></input>
+        ></textarea>
         <ul className='errorMsg'>
           {errors.map((error, idx) => (
             <li className='errors' key={idx}>
