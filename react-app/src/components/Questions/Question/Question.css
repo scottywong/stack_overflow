@@ -9,12 +9,19 @@
 }
 
 .q-title{
-
-    font-size: 33px;
+    font-size: 33px;   
+    overflow-wrap:break-word;
+}
+.q-body{
+    margin-top: 10px;
+    overflow-wrap:break-word;
+    word-break: break-all;
 }
 .q-detail{
+    display: flex;
+    flex-direction: column;
     justify-content: left;
-
+    width: 100%;
 }
 .q-bottom{
     display: flex;

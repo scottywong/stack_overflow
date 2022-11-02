@@ -47,7 +47,7 @@ function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <button className='modal-btn modal-submit-btn'>Edit</button>
+          <button className='modal-btn modal-submit-btn'>Confirm</button>
           <button
             className='modal-btn modal-cancel-btn'
             onClick={() => setShowEditModal(false)}

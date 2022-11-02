@@ -63,7 +63,7 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
       </ul>
       <div>
         <button className='modal-btn modal-submit-btn'>Submit</button>
-        <button className='modal-btn modal-cancel-btn'>Cancel</button>
+        <button onClick={() => setShowEditModal(false)} className='modal-btn modal-cancel-btn'>Cancel</button>
       </div>
     </form>
   );
