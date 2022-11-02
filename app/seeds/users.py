@@ -9,10 +9,13 @@ def seed_users():
         username='marnie', email='marnie@aa.io', password='password')
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='password')
+    daphnilla = User(
+        username='Daphnilla', email='daphnilla@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(daphnilla)
 
     db.session.commit()
 
