@@ -56,12 +56,15 @@ class Answer(db.Model):
         vote_id = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).first()
         if vote_id is not None:
             vid = vote_id.id
+            vdir = vote_id.voteDirection
         if vote_id is None:
-            vid = None      
+            vid = None
+            vdir = None      
         return { 
             "total" : count,
             "hasVoted" : voted,
-            "voteId" : vid
+            "voteId" : vid,
+            "voteDirection" : vdir
         }
 
     def to_dict2(self):
