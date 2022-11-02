@@ -16,7 +16,7 @@
 .vote-caret-container{
     width:40px;
     background-color: white;
-    color:#babfc4;
+    color:var(--vote-caret-color, #babfc4);
     padding: 0.8em;
     border: none;
     height: 40px;

@@ -33,7 +33,7 @@ const LandingPage = () => {
           </div>
           <div className="blue-box">
             <div className="blue-box-content">
-              <i class="fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock"></i>
               <h2 className="blue-box-words">
                 Want a secure, private space for your technical knowledge?
               </h2>
