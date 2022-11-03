@@ -8,8 +8,6 @@ function AnswerListItem({answer}) {
     let answerBody;
     answer?.body && answer?.body?.length >= 50 ? answerBody = answer?.body?.substring(0,50) + ' ...' : answerBody = answer?.body;
     return (<div>
-
-            {console.log('this is the answer: ', answer)}
             {answer && (
                 <div className='ali-container'>
                 <NavLink className="ali-link" to={`/questions/${answer.questionId}`}>
