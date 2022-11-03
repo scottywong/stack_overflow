@@ -9,6 +9,10 @@ function MyAnswerList() {
 
     const dispatch = useDispatch();
     const myAnswers = Object.values(useSelector(state => state.answers));
+    const sessionUser = useSelector((state) => state.session.user);
+
+    console.log('User Id',sessionUser.id)
+
      
     useEffect(() => {
         dispatch(fetchGetUserAnswers());
@@ -21,7 +25,9 @@ function MyAnswerList() {
             </div>
             { myAnswers && 
                 myAnswers.map(answer => {
-                return <AnswerListItem answer={answer}> </AnswerListItem>
+                    if(sessionUser.id === answer.userId){
+                        return <AnswerListItem answer={answer}> </AnswerListItem>
+                    }
             })} 
         </div>
     )
