@@ -29,24 +29,25 @@ const Votes = ({answer, refreshQuestion}) => {
         document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
             e => {
                 e.removeAttribute('disabled');
-                e.style.setProperty('--vote-caret-color', '#babfc4');
-                e.style.setProperty('--vote-caret-hover-cursor', 'pointer');   
+                e.style.setProperty('color', '#babfc4');
+                e.style.setProperty('cursor', 'pointer');  
             }
         )
 
     } else {
 
         document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
-            e => e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed')
+            e => e.style.setProperty('cursor', 'not-allowed')
         );
 
         //Default Up
         if(voteDirection === 'Up'){
             document.querySelectorAll("[class*=up-caret-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
                 e => {
-                    e.style.setProperty('--vote-caret-color', 'green');
+                    e.style.setProperty('color', 'green');
                     e.setAttribute('disabled', '')
                     e.style.setProperty('background-color', 'white');
+                    e.classList.add('.vote-caret-green');
                     
             });
         }
@@ -55,9 +56,10 @@ const Votes = ({answer, refreshQuestion}) => {
         if(voteDirection === 'Down'){
             document.querySelectorAll("[class*=down-caret-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
                 e => {
-                    e.style.setProperty('--vote-caret-color', 'red');
+                    e.style.setProperty('color', 'red');
                     e.setAttribute('disabled', '')
                     e.style.setProperty('background-color', 'white');
+                    e.classList.add('.vote-caret-red');
             });
         }
     }
