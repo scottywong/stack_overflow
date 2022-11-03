@@ -171,12 +171,12 @@ const answersReducer = (state = initialState, action) => {
         case DELETE_ANSWER:
             delete newState[action.payload];
             return newState;
-        case CREATE_VOTE:
-            newState = action.payload
-            return newState;
-        case DELETE_VOTE:
-            newState = action.payload;
-            return newState;
+        // case CREATE_VOTE:
+        //     newState = action.payload
+        //     return newState;
+        // case DELETE_VOTE:
+        //     newState = action.payload;
+        //     return newState;
         default:
             return newState;
     }
