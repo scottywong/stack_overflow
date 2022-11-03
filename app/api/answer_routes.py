@@ -87,8 +87,8 @@ def create_vote(answerId):
     if answer is None:
         return {"errors": ["can't find this answer, bully!"]}, 404
 
-    if answer.userId == current_user.id:
-        return {"errors": ["can't vote on your own answer, bully!"]}, 401
+    # if answer.userId == current_user.id:
+    #     return {"errors": ["can't vote on your own answer, bully!"]}, 401
 
     hasVoted = Vote.query.filter(answer.id == Vote.answerId).filter(current_user.id == Vote.userId).all()
     if len(hasVoted) > 0:
