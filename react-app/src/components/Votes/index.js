@@ -106,13 +106,34 @@ const Votes = ({answer, refreshQuestion}) => {
     return (
         <div className='votes-container'>
 
+            {voteDirection === "Up" &&(
+
+            <button disabled={answer?.Votes?.hasVoted} onClick={handleUpVote} className={`vote-caret-container up-caret-${answer.id} vote-a-${answer.id} vote-caret-green`}>
+                <i  className="fa-solid fa-caret-up fa-2xl"></i>
+            </button>)
+            }
+
+            {(voteDirection === null || voteDirection === 'Down') &&(
+
             <button disabled={answer?.Votes?.hasVoted} onClick={handleUpVote} className={`vote-caret-container up-caret-${answer.id} vote-a-${answer.id}`}>
                 <i  className="fa-solid fa-caret-up fa-2xl"></i>
-            </button>
+            </button>)
+            }
+
             <div className='vote-total'>{answer?.Votes?.total}</div>
-            <button disabled={answer?.Votes?.hasVoted} onClick={handleDownVote} className={`vote-caret-container down-caret-${answer.id} vote-a-${answer.id}`}>
+
+            {voteDirection === "Down" &&
+            (<button disabled={answer?.Votes?.hasVoted} onClick={handleDownVote} className={`vote-caret-container down-caret-${answer.id} vote-a-${answer.id} vote-caret-red`}>
                 <i className='fa-solid fa-caret-down fa-2xl'></i>
-            </button>
+            </button>)
+            }
+
+             {(voteDirection === null || voteDirection ==='Up') &&
+             (
+             <button disabled={answer?.Votes?.hasVoted} onClick={handleDownVote} className={`vote-caret-container down-caret-${answer.id} vote-a-${answer.id}`}>
+                 <i className='fa-solid fa-caret-down fa-2xl'></i>
+             </button>)}
+
             {answer?.Votes?.hasVoted && 
             <a href='#'  onClick={handleClearVote} className="link">Clear Vote</a>
             }
