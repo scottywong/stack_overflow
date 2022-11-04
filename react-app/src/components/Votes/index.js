@@ -24,6 +24,7 @@ const Votes = ({answer, refreshQuestion}) => {
     // }
     
     //Default Null
+    
     if(voteDirection === null){
 
         document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
@@ -103,7 +104,7 @@ const Votes = ({answer, refreshQuestion}) => {
 
     return (
         <div className='votes-container'>
-
+            
             <button disabled={answer?.Votes?.hasVoted} onClick={handleUpVote} className={`vote-caret-container up-caret-${answer.id} vote-a-${answer.id}`}>
                 <i  className="fa-solid fa-caret-up fa-2xl"></i>
             </button>

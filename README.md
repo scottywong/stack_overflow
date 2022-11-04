@@ -1,3 +1,64 @@
+# **StackOverflow Clone**
+Welcome to our **StackOverflow** clone created by the Boolean Bullies! This is a clone of our industry site where people can go and ask questions, answer questions, make comments, and up-vote or down-vote answers. Checkout our live site at [https://stackoverflow-bb.herokuapp.com/](https://stackoverflow-bb.herokuapp.com/)
+
+**Contributors**:
+- [Ellie Billerbeck](https://github.com/elnorabills)
+- [Isaac Darzi](https://github.com/gitCommitted)
+- [Keith Glines](https://github.com/Kglines)
+- [Scotty Wong](https://github.com/scottywong)
+
+## **Technologies Used**
+For this project, we used the following technologies:
+- **Backend**
+    - Python
+    - Flask
+    - WTForms
+    - SQLAlchemy
+    - Alembic
+- **Frontend**
+    - Javascript
+    - React
+    - React-Router
+    - React-Redux
+    - CSS
+
+## To get started on your local environment
+
+1. Clone the repo and run `pipenv install` to install the dependencies
+2. run `pipenv run flask run` to get the backend started.
+3. cd into the `reaact-app`
+4. run `npm install` to install the frontend dependencies
+5. run `npm start` to start the frontend
+6. go to [localhost:3000](localhost:3000) in your browser
+
+## **Screen Shots**
+### Landing Page
+<img src='./react-app/public/images/landing_page.png'>
+
+### Sign up Modal
+<img src='./react-app/public/images/sign_up.png'>
+
+### Question Detail Page
+<img src='./react-app/public/images/question_detail.png'>
+
+## Features
+- Signup
+- Login
+- Demo user with full functionality
+- View all Questions
+- View only your Questions and your Answers
+- Answer any Question you didn't ask
+- Vote on any Answer
+- Comment on Any Answer
+- Update or Delete only a Question that you asked
+- Update or Delete only an Answer you posted
+- Delete any comment you made
+- Clear your vote and re-vote
+
+## Future additions
+- Search bar to search questions
+- Add categories for questions based on topics
+<!-- 
 ### Backend Routes
 Prepend all routes below with /api
 
@@ -465,4 +526,5 @@ Status Code: 200
     "Status Code": 200
     
 }
-```
+``` -->
+

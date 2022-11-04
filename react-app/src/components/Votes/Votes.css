@@ -12,11 +12,20 @@
     cursor: var(--vote-caret-hover-cursor, pointer);
 
 }
-
-.vote-caret-container{
+/* .vote-a-1 {
     width:40px;
     background-color: white;
     color:var(--vote-caret-color, #babfc4);
+    padding: 0.8em;
+    border: none;
+    height: 40px;
+    min-width: 100px;
+    box-shadow: none !important;
+} */
+.vote-caret-container{
+    width:40px;
+    background-color: white;
+    color:var(--vote-caret-color);
     padding: 0.8em;
     border: none;
     height: 40px;
