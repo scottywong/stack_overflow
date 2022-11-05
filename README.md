@@ -1,3 +1,76 @@
+# **StackOverflow Clone**
+
+Welcome to our StackOverflow clone, created by the Boolean Bullies team. Checkout our live site by clicking [StackOverflow_clone](https://stackoverflow-bb.herokuapp.com/).
+
+## **Technologies Used**
+For this project, we used the following technologies:
+- Docker
+- **Backend**
+    - Python
+    - Flask
+    - WTForms
+    - SQLAlchemy
+    - Alembic
+    - SQLite3 (development)
+    - PostgreSQL (production)
+- **Frontend**
+    - Javascript
+    - React
+    - React-Router
+    - React-Redux
+    - CSS
+
+## **To get started on your local environment**
+
+1. Clone the repo and run `pipenv install` to install the dependencies
+2. Create .env file, for example:
+    ```
+    SECRET_KEY=[add secret key here]
+    DATABASE_URL=sqlite:///dev.db
+    ```
+3. Start pipenv shell `pipenv shell`
+4. Migrate and seed database `flask db migrate` and `flask seed all`
+5. Run flask `flask run`
+6. cd into the `react-app`
+7. run `npm install` to install the frontend dependencies
+8. run `npm start` to start the frontend
+9. go to [localhost:3000](localhost:3000) in your browser
+
+## **Screen Shots**
+### Landing Page
+<img src='./react-app/public/images/landing_page.png'>
+
+### Sign up Modal
+<img src='./react-app/public/images/sign_up.png'>
+
+### Question Detail Page
+<img src='./react-app/public/images/question_detail.png'>
+
+## **Features**
+- Signup
+- Login
+- Demo user with full functionality
+- View all Questions
+- View only your Questions and your Answers
+- Answer any Question you didn't ask
+- Vote on any Answer
+- Comment on Any Answer
+- Update or Delete only a Question that you asked
+- Update or Delete only an Answer you posted
+- Delete any comment you made
+- Clear your vote and re-vote
+
+## Future additions
+- Search bar to search questions
+- Add categories for questions based on topics
+
+## Team Members
+ - [Ellie Billerbeck](https://github.com/elnorabills)
+ - [Isaac Darzi](https://github.com/gitCommitted)
+ - [Keith Glines](https://github.com/Kglines)
+ - [Scotty Wong](https://github.com/scottywong)
+
+# **API Documentation**
 ### Backend Routes
 Prepend all routes below with /api
 
@@ -465,4 +538,5 @@ Status Code: 200
     "Status Code": 200
     
 }
-```
+``` 
+
