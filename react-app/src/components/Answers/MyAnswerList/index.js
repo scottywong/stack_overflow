@@ -12,10 +12,13 @@ function MyAnswerList() {
     const sessionUser = useSelector((state) => state.session.user);
 
     console.log('User Id',sessionUser.id)
+    const [isLoaded,SetIsLoaded] = useState(false);
 
      
     useEffect(() => {
-        dispatch(fetchGetUserAnswers());
+        dispatch(fetchGetUserAnswers()).then(
+            SetIsLoaded(true)
+        );
     },[dispatch]);
 
     return (
@@ -23,7 +26,7 @@ function MyAnswerList() {
             <div className="my-al-header">
                 <h2>My Answers</h2>
             </div>
-            { myAnswers && 
+            { myAnswers && SetIsLoaded && 
                 myAnswers.map(answer => {
                     if(sessionUser.id === answer.userId){
                         return <AnswerListItem answer={answer}> </AnswerListItem>
