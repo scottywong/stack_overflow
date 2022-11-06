@@ -10,14 +10,11 @@ function MyAnswerList() {
     const dispatch = useDispatch();
     const myAnswers = Object.values(useSelector(state => state.answers));
     const sessionUser = useSelector((state) => state.session.user);
-
-    console.log('User Id',sessionUser.id)
     const [isLoaded,SetIsLoaded] = useState(false);
 
      
     useEffect(() => {
         dispatch(fetchGetUserAnswers())
-        .then(() => console.log('myANSWERS: ', myAnswers))
         .then(SetIsLoaded(true));
     },[dispatch]);
 
