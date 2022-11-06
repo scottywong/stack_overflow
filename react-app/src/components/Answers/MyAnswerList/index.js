@@ -10,15 +10,12 @@ function MyAnswerList() {
     const dispatch = useDispatch();
     const myAnswers = Object.values(useSelector(state => state.answers));
     const sessionUser = useSelector((state) => state.session.user);
-
-    console.log('User Id',sessionUser.id)
     const [isLoaded,SetIsLoaded] = useState(false);
 
      
     useEffect(() => {
-        dispatch(fetchGetUserAnswers()).then(
-            SetIsLoaded(true)
-        );
+        dispatch(fetchGetUserAnswers())
+        .then(SetIsLoaded(true));
     },[dispatch]);
 
     return (
@@ -26,7 +23,7 @@ function MyAnswerList() {
             <div className="my-al-header">
                 <h2>My Answers</h2>
             </div>
-            { myAnswers && SetIsLoaded && 
+            { myAnswers && isLoaded && 
                 myAnswers.map(answer => {
                     if(sessionUser.id === answer.userId){
                         return <AnswerListItem answer={answer}> </AnswerListItem>

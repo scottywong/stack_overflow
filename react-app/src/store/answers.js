@@ -159,9 +159,10 @@ const answersReducer = (state = initialState, action) => {
     let newState = {...state};
     switch (action.type){
         case GET_USER_ANSWERS:
+            let userState = {};
             action.payload['Answers'].forEach(answer => {
-                newState[answer.id] = answer});
-            return newState;
+                userState[answer.id] = answer});
+            return userState;
         case CREATE_ANSWER:
             newState = {[action.payload.answer.id]: action.payload.answer }
             return newState;
@@ -171,12 +172,6 @@ const answersReducer = (state = initialState, action) => {
         case DELETE_ANSWER:
             delete newState[action.payload];
             return newState;
-        // case CREATE_VOTE:
-        //     newState = action.payload
-        //     return newState;
-        // case DELETE_VOTE:
-        //     newState = action.payload;
-        //     return newState;
         default:
             return newState;
     }
