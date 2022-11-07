@@ -80,10 +80,9 @@ export const fetchUserQuestions = () => async (dispatch) => {
      
         dispatch(getUserQuestions(questions));
 
-        console.log('inside response, ', questions)
         return res;
     };
-    // return res
+
 };
 
 // GET one Question thunk
