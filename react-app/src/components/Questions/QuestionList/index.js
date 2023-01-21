@@ -5,6 +5,7 @@ import QuestionListItem from '../QuestionListItem';
 import { Modal } from '../../../context/Modal';
 import QuestionCreateForm from '../QuestionCreateForm';
 import './QuestionList.css';
+import UsersList from '../../UsersList';
 
 function QuestionList() {
     const dispatch = useDispatch();
@@ -23,32 +24,37 @@ function QuestionList() {
 
     return (
       <div className='ql-container'>
-        <div className='ql-header'>
-              <div className='question-nav-header'><h1>All Questions</h1></div>
-              <button onClick={() => setShowModal(true)}>Ask Question</button>
-            {showModal && (
-              <Modal onClose={() => setShowModal(false)}>
-                <QuestionCreateForm setShowModal={setShowModal} />
-              </Modal>
-            )}
-        </div>
-        <ul>
-          {validationErrors &&
-            validationErrors.map((error) => (
-              <li className='errors' key={error}>
-                {error}
-              </li>
-            ))}
-        </ul>
-          <div className='ql-list'>
-            {questions.map((question) => (
-              <div key={question?.id}>
-                <div>
-                  <QuestionListItem question={question} />
-                </div>
-              </div>
-            ))}
+        <div>
+          <div className='ql-header'>
+                <div className='question-nav-header'><h1>All Questions</h1></div>
+                <button onClick={() => setShowModal(true)}>Ask Question</button>
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                  <QuestionCreateForm setShowModal={setShowModal} />
+                </Modal>
+              )}
           </div>
+          <ul>
+            {validationErrors &&
+              validationErrors.map((error) => (
+                <li className='errors' key={error}>
+                  {error}
+                </li>
+              ))}
+          </ul>
+            <div className='ql-list'>
+              {questions.map((question) => (
+                <div key={question?.id}>
+                  <div>
+                    <QuestionListItem question={question} />
+                  </div>
+                </div>
+              ))}
+            </div>
+        </div>
+        <div className='ql-users-list'>
+          <UsersList />
+        </div>
       </div>
     );
 }

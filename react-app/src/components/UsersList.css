@@ -1,0 +1,16 @@
+.user-list-item {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.user-list-link {
+    text-decoration: none;
+    color: rgb(55, 55, 55);
+}
+
+.user-list-link:hover {
+    color: #0a95ff;
+    text-decoration: underline;
+}
