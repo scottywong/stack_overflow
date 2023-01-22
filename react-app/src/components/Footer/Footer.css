@@ -42,3 +42,24 @@
 .logo-footer{
     margin-left:20px;
 }
+
+.bullies-container h2 {
+    color: white;
+}
+
+.bully {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    width: 250px;
+}
+
+.bully i {
+    font-size: 30px;
+    margin: 8px 8px;
+    color: #0a95ff;
+}
+.bully i:hover {
+    color: rgb(9, 108, 183);
+}
