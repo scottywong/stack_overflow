@@ -110,7 +110,7 @@ export const fetchDeleteAnswer =  (answerId) => async (dispatch) => {
 
     if(response.ok){
         const responseMessage = await response.json();
-        console.log('MESSAGE', responseMessage)
+   
         dispatch(deleteAnswer(answerId));
     };
 
@@ -120,7 +120,7 @@ export const fetchDeleteAnswer =  (answerId) => async (dispatch) => {
 
 export const fetchCreateVote =  (answerId,voteDirection) => async (dispatch) => {
     let response;
-    console.log(JSON.stringify({voteDirection}));
+
     response = await fetch(`/api/answers/${answerId}/votes`,
     {
         method: 'POST',

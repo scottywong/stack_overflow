@@ -16,7 +16,6 @@ function QuestionList() {
     
     useEffect(() => {
         dispatch(fetchAllQuestions()).catch(async (res) => {
-            console.log('res = ', res)
             const data = await res.json();
             if (data && data.errors) setValidationErrors(data.errors);
         })

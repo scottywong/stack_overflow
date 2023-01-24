@@ -10,18 +10,6 @@ const Votes = ({answer, refreshQuestion}) => {
     const sessionUser = useSelector(state => state.session.user);
     const isOwner = sessionUser.id === answer?.userId;
     const voteDirection = answer?.Votes?.voteDirection;
-
-    console.log('voteDirection', voteDirection);
-
-    //Default Owner Style
-    // if(isOwner){
-    //     document.querySelectorAll("[class*=vote-a-"+CSS.escape(`${answer.id}`)+"]" ).forEach(
-    //         e => {
-    //             e.setAttribute('disabled','')
-    //             e.style.setProperty('background-color', 'white');
-    //             e.style.setProperty('--vote-caret-hover-cursor', 'not-allowed');
-    //     });
-    // }
     
     //Default Null
     if(voteDirection === null){
