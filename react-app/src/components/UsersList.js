@@ -15,17 +15,31 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </li>
+      <div className='ql-list' id="userList">
+        <div className='qli-container' id="qCont">
+      {/* <li key={user.id}> */}
+        {/* <NavLink className="qli-link" to={`/users/${user.id}`}> */}
+          <h3 className='qli-title'>{user.username}</h3>
+          {/* </NavLink> */}
+      {/* </li> */}
+          <p>{user.email}</p>
+      
+      </div>
+      </div>
     );
   });
 
   return (
-    <>
-      <h1>User List: </h1>
+    <div className="homepage-container">
+      <div className='ql-container'>
+        <div className='ql-header' id="qHeader" >
+              {/* <div className='question-nav-header'> */}
+      <h1 id="qHead">User List</h1>
+      {/* </div> */}
+      </div>
       <ul>{userComponents}</ul>
-    </>
+    </div>
+    </div>
   );
 }
 

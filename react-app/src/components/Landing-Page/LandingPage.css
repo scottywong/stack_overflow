@@ -172,3 +172,26 @@
     padding-right: 18px;
     padding-left: 18px;
 }
+@media (max-width: 1030px) {
+    .orange-blue-container {
+      display: none;
+  }
+  .stats-container {
+    display: none;
+}
+}
+#userList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#qHeader {
+    align-self: center;
+    justify-content: center;
+    color:  #0a95ff;
+}
+#qCont {
+    justify-content: space-around;
+}
