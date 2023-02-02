@@ -42,3 +42,31 @@
 .logo-footer{
     margin-left:20px;
 }
+
+.modal-bully{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.modal-bullies-name{
+    color: white;
+    font-size: 18px;
+}
+
+.modal-bullies-github{
+    color: white;
+    font-size: 28px;
+    margin: 8px;
+}
+
+.modal-bullies-linked {
+    color:#0a95ff;
+    font-size: 28px;
+    margin: 8px;
+}
+.modal-bullies-github:hover, .modal-bullies-linked:hover{
+    color: rgb(255, 115, 0);
+}
